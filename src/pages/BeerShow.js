@@ -1,13 +1,24 @@
-import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import React from "react";
+import { useParams } from "react-router-dom";
 
-const BeerShow = ({ currentBeer }) => {
-  <NavLink to={`/BeerEdit/${currentBeer.id}`} className="nav-link">Edit A Review</NavLink>
+const BeerShow = ({ beers }) => {
+  const { id } = useParams();
+  let currentBeer = beers.find((beer) => beer.id === +id);
+  console.log(currentBeer);
+
   return (
-   <>
+    <>
+      <div>BeerShow</div>
+      <main>
+        {currentBeer && (
+          <>
+          <img alt={`profile of beer named ${currentBeer.name}`} src={currentBeer.image} />
+          
+          </>
+        )}
+      </main>
+    </>
+  );
+};
 
-   </>
-  )
-}
-
-export default BeerShow
+export default BeerShow;

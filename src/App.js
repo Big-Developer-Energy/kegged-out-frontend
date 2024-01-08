@@ -29,8 +29,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/BeerIndex" element={<BeerIndex />} />
-        <Route path="/BeerShow" element={<BeerShow />} />
+        <Route path="/BeerIndex" element={<BeerIndex beers={beers} />} />
+        <Route path="/BeerShow/:id" element={<BeerShow beers={beers} />} />
         <Route path="/BeerNew" element={<BeerNew createBeer={createBeer} />} />
         <Route
           path="/BeerEdit/:id"
