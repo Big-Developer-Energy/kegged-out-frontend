@@ -25,7 +25,7 @@ const BeerNew = ({ createBeer }) => {
     <>
       <FormGroup>
         <Label for="name">Name</Label>
-        <input
+        <Input
           id="name"
           type="text"
           name="name"
@@ -35,7 +35,7 @@ const BeerNew = ({ createBeer }) => {
       </FormGroup>
       <FormGroup>
         <Label for="rating">Rating</Label>
-        <input
+        <Input
           id="rating"
           type="text"
           name="rating"
@@ -45,7 +45,7 @@ const BeerNew = ({ createBeer }) => {
       </FormGroup>
       <FormGroup>
         <Label for="description">Description</Label>
-        <input
+        <Input
           id="descritpion"
           type="text"
           name="description"
@@ -55,7 +55,7 @@ const BeerNew = ({ createBeer }) => {
       </FormGroup>
       <FormGroup>
         <Label for="location">Location</Label>
-        <input
+        <Input
           id="location"
           type="text"
           name="location"
@@ -65,7 +65,7 @@ const BeerNew = ({ createBeer }) => {
       </FormGroup>
       <FormGroup>
         <Label for="image">Image</Label>
-        <input
+        <Input
           id="image"
           type="text"
           name="image"
