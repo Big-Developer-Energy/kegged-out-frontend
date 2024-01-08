@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home"
+import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -20,6 +20,10 @@ function App() {
   const createBeer = (beer) => {
     console.log(beer);
   };
+  const updateBeer = (beer, id) => {
+    console.log("beer:", beer);
+    console.log("id:", id);
+  };
   return (
     <>
       <Header />
@@ -28,7 +32,10 @@ function App() {
         <Route path="/BeerIndex" element={<BeerIndex beers={beers} />} />
         <Route path="/BeerShow/:id" element={<BeerShow beers={beers} />} />
         <Route path="/BeerNew" element={<BeerNew createBeer={createBeer} />} />
-        <Route path="/BeerEdit" element={<BeerEdit />} />
+        <Route
+          path="/BeerEdit/:id"
+          element={<BeerEdit beers={beers} updateBeer={updateBeer} />}
+        />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
