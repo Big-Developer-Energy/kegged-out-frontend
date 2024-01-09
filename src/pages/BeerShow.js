@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 const BeerShow = ({ beers }) => {
   const { id } = useParams();
   let currentBeer = beers.find((beer) => beer.id === +id);
-  console.log(currentBeer);
 
   return (
     <>

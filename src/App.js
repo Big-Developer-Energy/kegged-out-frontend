@@ -10,23 +10,29 @@ import BeerIndex from "./pages/BeerIndex";
 import BeerNew from "./pages/BeerNew";
 import BeerShow from "./pages/BeerShow";
 import NotFound from "./pages/NotFound";
+import MyBeerIndex from "./pages/MyBeerIndex";
 
 import mockBeer from "./MockBeer";
+import mockUsers from "./mockUsers";
+import Navigation from "./components/Navigation";
 
 function App() {
+
+  const [currentUser, setCurrentUser] = useState(mockUsers[0])
+
   const [beers, setBeers] = useState(mockBeer);
-  console.log(beers);
 
   const createBeer = (beer) => {
-    console.log(beer);
+   
   };
   const updateBeer = (beer, id) => {
-    console.log("beer:", beer);
-    console.log("id:", id);
+    
   };
+
   return (
     <>
       <Header />
+      <Navigation currentUser={currentUser}/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/BeerIndex" element={<BeerIndex beers={beers} />} />
@@ -38,6 +44,9 @@ function App() {
         />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="*" element={<NotFound />} />
+        {currentUser && (
+          <Route path="/MyBeerIndex" element={<MyBeerIndex currentUser={currentUser} beers={beers}/>} />
+        )}
       </Routes>
       <Footer />
     </>
