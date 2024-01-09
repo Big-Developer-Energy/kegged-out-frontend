@@ -3,7 +3,6 @@ import { Card, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap";
 import { NavLink } from "react-router-dom"
 
 const BeerIndex = ({ beers }) => {
-  console.log(beers);
 
   return (
     <>
