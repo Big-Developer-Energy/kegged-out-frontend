@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { Form, FormGroup, Input, Label } from "reactstrap";
+import { Form, FormGroup, Input, Label, Button } from "reactstrap";
 import { useNavigate, useParams } from "react-router-dom";
-import { Button } from 'bootstrap';
+
 
 
 const BeerEdit = ({beers, updateBeer }) => {
@@ -12,7 +12,7 @@ const BeerEdit = ({beers, updateBeer }) => {
     name: currentBeer.name,
     rating: currentBeer.rating,
     description: currentBeer.description,
-    locaiton: currentBeer.location,
+    location: currentBeer.location,
     image: currentBeer.image
   })
   const handleChange = (e) => {
@@ -28,23 +28,23 @@ const BeerEdit = ({beers, updateBeer }) => {
    <Form>
     <FormGroup>
       <Label for="name">Name</Label>
-      <Input type="text" name="name" handleChange={handleChange} value={editBeer.name}/>
+      <Input type="text" name="name" onChange={handleChange} value={editBeer.name}/>
     </FormGroup>
     <FormGroup>
       <Label for="rating">Rating</Label>
-      <Input type="text" name="rating" handleChange={handleChange} value={editBeer.rating}/>
+      <Input type="text" name="rating" onChange={handleChange} value={editBeer.rating}/>
     </FormGroup>
     <FormGroup>
       <Label for="description">Description</Label>
-      <Input type="text" name="description" handleChange={handleChange} value={editBeer.description}/>
+      <Input type="text" name="description" onChange={handleChange} value={editBeer.description}/>
     </FormGroup>
     <FormGroup>
       <Label for="location">Location</Label>
-      <Input type="text" name="location" handleChange={handleChange} value={editBeer.locaiton}/>
+      <Input type="text" name="location" onChange={handleChange} value={editBeer.location}/>
     </FormGroup>
     <FormGroup>
       <Label for="image">Image</Label>
-      <Input type="text" name="image" handleChange={handleChange} value={editBeer.image}/>
+      <Input type="text" name="image" onChange={handleChange} value={editBeer.image}/>
     </FormGroup>
    </Form>
    <Button onClick={handleSubmit} name="submit">Submit Update</Button>

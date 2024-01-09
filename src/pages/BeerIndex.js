@@ -8,6 +8,7 @@ const BeerIndex = ({ beers }) => {
     <>
       <main>
         <div>BeerIndex</div>
+        <h1>{beers.name}</h1>
         {beers?.map((beer, index) => {
           return (
             <>
@@ -16,6 +17,7 @@ const BeerIndex = ({ beers }) => {
                 <CardBody>
                   <CardTitle>{beer.name}</CardTitle>
                   <CardSubtitle>{beer.rating}</CardSubtitle>
+                  <CardSubtitle>{beer.description}</CardSubtitle>
                   <NavLink to={`/BeerShow/${beer.id}`}>See more details</NavLink> 
                 </CardBody>
               </Card>

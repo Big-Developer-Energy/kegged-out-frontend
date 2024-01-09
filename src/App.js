@@ -10,11 +10,15 @@ import BeerIndex from "./pages/BeerIndex";
 import BeerNew from "./pages/BeerNew";
 import BeerShow from "./pages/BeerShow";
 import NotFound from "./pages/NotFound";
+
 import MyBeerIndex from "./pages/MyBeerIndex";
+
+
 
 import mockBeer from "./MockBeer";
 import mockUsers from "./mockUsers";
 import Navigation from "./components/Navigation";
+
 
 function App() {
 
@@ -29,6 +33,13 @@ function App() {
     
   };
 
+
+
+  const destroyBeer = (beer, id) => {
+
+  }
+
+
   return (
     <>
       <Header />
@@ -36,7 +47,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/BeerIndex" element={<BeerIndex beers={beers} />} />
-        <Route path="/BeerShow/:id" element={<BeerShow beers={beers} />} />
+        <Route path="/BeerShow/:id" element={<BeerShow beers={beers} destroyBeer={destroyBeer} />} />
         <Route path="/BeerNew" element={<BeerNew createBeer={createBeer} />} />
         <Route
           path="/BeerEdit/:id"
