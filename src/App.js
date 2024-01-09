@@ -10,8 +10,8 @@ import BeerIndex from "./pages/BeerIndex";
 import BeerNew from "./pages/BeerNew";
 import BeerShow from "./pages/BeerShow";
 import NotFound from "./pages/NotFound";
-
 import mockBeer from "./MockBeer";
+
 
 function App() {
   const [beers, setBeers] = useState(mockBeer);

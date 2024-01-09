@@ -58,17 +58,18 @@ const BeerShow = ({ beers, destroyBeer }) => {
                 <CardText>Description: {currentBeer.description}</CardText>
                 <CardText>Location: {currentBeer.location}</CardText>
                 <NavLink to={`/BeerEdit/${currentBeer.id}`}>
-                 <button>Edit Review</button>
+                 <div className="edit-button">
+                 <Button>Edit Review</Button>
+                 </div>
                 </NavLink>
-
-                <button onClick={toggleModal}>Delete Review</button>
+                <Button onClick={toggleModal}>Delete Review</Button>
                 <Modal isOpen={isModalOpen} toggle={toggleModal}>
                   <ModalBody>
                     Are you sure you want to delete this review?
                   </ModalBody>
                   <ModalFooter>
-                    <button onClick={handleDestroy}>yes</button>{" "}
-                    <button onClick={handleSubmit}>No</button>
+                    <Button onClick={handleDestroy}>yes</Button>
+                    <Button onClick={handleSubmit}>No</Button>
                   </ModalFooter>
                 </Modal>
               </CardBody>
