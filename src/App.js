@@ -10,8 +10,8 @@ import BeerIndex from "./pages/BeerIndex";
 import BeerNew from "./pages/BeerNew";
 import BeerShow from "./pages/BeerShow";
 import NotFound from "./pages/NotFound";
-
 import mockBeer from "./MockBeer";
+
 
 function App() {
   const [beers, setBeers] = useState(mockBeer);
@@ -24,13 +24,19 @@ function App() {
     console.log("beer:", beer);
     console.log("id:", id);
   };
+
+  const destroyBeer = (beer, id) => {
+    console.log("beer:", beer)
+    console.log("id:", id)
+  }
+
   return (
     <>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/BeerIndex" element={<BeerIndex beers={beers} />} />
-        <Route path="/BeerShow/:id" element={<BeerShow beers={beers} />} />
+        <Route path="/BeerShow/:id" element={<BeerShow beers={beers} destroyBeer={destroyBeer} />} />
         <Route path="/BeerNew" element={<BeerNew createBeer={createBeer} />} />
         <Route
           path="/BeerEdit/:id"
