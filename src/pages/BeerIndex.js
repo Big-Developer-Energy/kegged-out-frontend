@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom"
 
 const BeerIndex = ({ beers }) => {
 
+
   return (
     <>
       <main>

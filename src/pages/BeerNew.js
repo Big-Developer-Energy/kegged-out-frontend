@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Form, FormGroup, Input, Label } from "reactstrap";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-const BeerNew = ({ createBeer }) => {
+const BeerNew = ({ createBeer, currentUser }) => {
   const navigate = useNavigate();
   const [newBeer, setNewBeer] = useState({
     name: "",
@@ -10,6 +10,7 @@ const BeerNew = ({ createBeer }) => {
     description: "",
     location: "",
     image: "",
+    user_id: currentUser.id
   });
 
   const handleChange = (e) => {
