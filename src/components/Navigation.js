@@ -1,10 +1,9 @@
-import { Nav, NavItem, Input } from "reactstrap";
+import { Nav, NavItem, Input, Button } from "reactstrap";
 import { NavLink, useNavigate } from "react-router-dom";
 
 const Navigation = ({ currentUser, logout }) => {
   const navigate = useNavigate();
 
-  let current_user = currentUser;
 
   const handleClick = () => {
     logout();
@@ -13,12 +12,12 @@ const Navigation = ({ currentUser, logout }) => {
 
   return (
     <Nav className="nav">
-      {current_user && (
+      {currentUser && (
         <NavItem>
           <Input type="button" value="Logout" onClick={handleClick} />
         </NavItem>
       )}
-      {!current_user && (
+      {!currentUser && (
         <>
           <NavItem>
             <NavLink to="/login" className="nav-link">
