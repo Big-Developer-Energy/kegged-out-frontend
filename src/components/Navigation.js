@@ -1,32 +1,39 @@
-import { Nav, NavItem, Input } from "reactstrap"
-import { NavLink } from "react-router-dom"
+import { Nav, NavItem, Input } from "reactstrap";
+import { NavLink, useNavigate } from "react-router-dom";
 
-const Navigation = ({currentUser}) => {
-    let current_user = currentUser
-    return (
+const Navigation = ({ currentUser, logout }) => {
+  const navigate = useNavigate();
 
+  let current_user = currentUser;
+
+  const handleClick = () => {
+    logout();
+    navigate("/");
+  };
+
+  return (
     <Nav className="nav">
-    {current_user && (
+      {current_user && (
         <NavItem>
-        <Input type="button" value='Logout' />
+          <Input type="button" value="Logout" onClick={handleClick} />
         </NavItem>
-    )}
-    {!current_user && (
+      )}
+      {!current_user && (
         <>
-        <NavItem>
+          <NavItem>
             <NavLink to="/login" className="nav-link">
-            Log In
+              Log In
             </NavLink>
-        </NavItem>
-        <NavItem>
+          </NavItem>
+          <NavItem>
             <NavLink to="/signup" className="nav-link">
-            Sign Up
+              Sign Up
             </NavLink>
-        </NavItem>
+          </NavItem>
         </>
-    )}
+      )}
     </Nav>
-    )
-}
+  );
+};
 
-export default Navigation
+export default Navigation;

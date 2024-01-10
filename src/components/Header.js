@@ -2,8 +2,9 @@ import React from "react";
 import keggedOut from "../assets/keggedOut.jpg"
 import { Nav, NavItem } from "reactstrap"
 import { NavLink } from "react-router-dom"
+import Navigation from "./Navigation";
 
-const Header = () => {
+const Header = ({currentUser, logout}) => {
   return (
     <>
     <div className="Header">
@@ -30,6 +31,7 @@ const Header = () => {
                 <NavLink to="/AboutUs">About Us</NavLink>
             </NavItem>
         </Nav>
+        <Navigation currentUser={currentUser} logout={logout} />
     </div>
     </>
   );

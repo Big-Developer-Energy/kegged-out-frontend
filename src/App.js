@@ -10,20 +10,13 @@ import BeerIndex from "./pages/BeerIndex";
 import BeerNew from "./pages/BeerNew";
 import BeerShow from "./pages/BeerShow";
 import NotFound from "./pages/NotFound";
-
-
 import MyBeerIndex from "./pages/MyBeerIndex";
-
-
-
-import mockBeer from "./MockBeer";
-import mockUsers from "./mockUsers";
-import Navigation from "./components/Navigation";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
-
 
   const [beers, setBeers] = useState([]);
 
@@ -57,11 +50,9 @@ const App = () => {
         setBeers(payload);
       })
       .catch((errors) => console.log("Beers read errors: ", errors));
-
   };
 
   const updateBeer = (beer, id) => {
-
     fetch(`http://localhost:3000/reviews/${id}`, {
       body: JSON.stringify(beer),
       header: {
@@ -72,13 +63,9 @@ const App = () => {
       .then((response) => response.json())
       .then(() => readBeer())
       .catch((errors) => console.log("Update Beer errors: ", errors));
-
   };
 
-
-
-  const destroyBeer = (beer, id) => {
-
+  const destroyBeer = (id) => {
     fetch(`http://localhost3000/reviews/${id}`, {
       headers: {
         "Content-Type": "application/json",
@@ -90,8 +77,8 @@ const App = () => {
       .catch((errors) => console.log("Delete Beer errors:", errors));
   };
 
-  const login = (userInfo) => {
-    fetch(`${url}/login`, {
+  const login = (userInfo, id ) => {
+    fetch(`http://localhost3000/login/${id}`, {
       body: JSON.stringify(userInfo),
       headers: {
         "Content-Type": "application/json",
@@ -112,8 +99,8 @@ const App = () => {
       .catch((error) => console.log("login errors: ", error));
   };
 
-  const signup = (userInfo) => {
-    fetch(`${url}/signup`, {
+  const signup = (userInfo, id ) => {
+    fetch(`http://localhost3000/signup/${id}`, {
       body: JSON.stringify(userInfo),
       header: {
         "Content-Type": "application/json",
@@ -134,8 +121,8 @@ const App = () => {
       .catch((error) => console.log("login errors: ", error));
   };
 
-  const logout = () => {
-    fetch(`${url}/logout`, {
+  const logout = (id) => {
+    fetch(`http://localhost3000/logout/${id}`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: localStorage.getItem("token"),
@@ -149,16 +136,9 @@ const App = () => {
       .catch((error) => console.log("log out errors: ", error));
   };
 
-
-
   return (
     <>
-
       <Header current_user={currentUser} logout={logout} />
-
-     
-      <Navigation currentUser={currentUser}/>
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login login={login} />} />
@@ -186,11 +166,14 @@ const App = () => {
             element={<BeerEdit beers={beers} updateBeer={updateBeer} />}
           />
         )}
+        {currentUser && (
+          <Route
+            path="/MyBeerIndex"
+            element={<MyBeerIndex currentUser={currentUser} beers={beers} />}
+          />
+        )}
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="*" element={<NotFound />} />
-        {currentUser && (
-          <Route path="/MyBeerIndex" element={<MyBeerIndex currentUser={currentUser} beers={beers}/>} />
-        )}
       </Routes>
       <Footer />
     </>
