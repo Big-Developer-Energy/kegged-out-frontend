@@ -10,25 +10,29 @@ import BeerIndex from "./pages/BeerIndex";
 import BeerNew from "./pages/BeerNew";
 import BeerShow from "./pages/BeerShow";
 import NotFound from "./pages/NotFound";
+import mockUser from "./mockUser";
 
 
-function App() {
+const App = () => {
+  const [currentUser, setCurrentUser] = useState(null)
   const [beers, setBeers] = useState([]);
   useEffect(() => {
     readBeer();
   }, []);
 
   const createBeer = (beer) => {
-    fetch("http://localhost:3000/reviews", {
-      body: JSON.stringify(beer),
-      headers: {
-        "content-Type": "apllication/json",
-      },
-      method: "POST",
-    })
-      .then((response) => response.json())
-      .then(() => readBeer())
-      .catch((errors) => console.log("beer create errors:", errors));
+console.log(beer)
+
+    // fetch("http://localhost:3000/reviews", {
+    //   body: JSON.stringify(beer),
+    //   headers: {
+    //     "content-Type": "apllication/json",
+    //   },
+    //   method: "POST",
+    // })
+    //   .then((response) => response.json())
+    //   .then(() => readBeer())
+    //   .catch((errors) => console.log("beer create errors:", errors));
   };
 
   const readBeer = () => {
@@ -75,7 +79,7 @@ function App() {
           path="/BeerShow/:id"
           element={<BeerShow beers={beers} destroyBeer={destroyBeer} />}
         />
-        <Route path="/BeerNew" element={<BeerNew createBeer={createBeer} />} />
+        <Route path="/BeerNew" element={<BeerNew createBeer={createBeer}  currentUser={currentUser} />} />
         <Route
           path="/BeerEdit/:id"
           element={<BeerEdit beers={beers} updateBeer={updateBeer} />}
