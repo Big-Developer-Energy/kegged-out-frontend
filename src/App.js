@@ -10,11 +10,20 @@ import BeerIndex from "./pages/BeerIndex";
 import BeerNew from "./pages/BeerNew";
 import BeerShow from "./pages/BeerShow";
 import NotFound from "./pages/NotFound";
-import mockUser from "./mockUser";
-import { userInfo } from "os";
+
+
+import MyBeerIndex from "./pages/MyBeerIndex";
+
+
+
+import mockBeer from "./MockBeer";
+import mockUsers from "./mockUsers";
+import Navigation from "./components/Navigation";
+
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
+
 
   const [beers, setBeers] = useState([]);
 
@@ -48,9 +57,11 @@ const App = () => {
         setBeers(payload);
       })
       .catch((errors) => console.log("Beers read errors: ", errors));
+
   };
 
   const updateBeer = (beer, id) => {
+
     fetch(`http://localhost:3000/reviews/${id}`, {
       body: JSON.stringify(beer),
       header: {
@@ -61,9 +72,13 @@ const App = () => {
       .then((response) => response.json())
       .then(() => readBeer())
       .catch((errors) => console.log("Update Beer errors: ", errors));
+
   };
 
+
+
   const destroyBeer = (beer, id) => {
+
     fetch(`http://localhost3000/reviews/${id}`, {
       headers: {
         "Content-Type": "application/json",
@@ -134,9 +149,16 @@ const App = () => {
       .catch((error) => console.log("log out errors: ", error));
   };
 
+
+
   return (
     <>
+
       <Header current_user={currentUser} logout={logout} />
+
+     
+      <Navigation currentUser={currentUser}/>
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login login={login} />} />
@@ -158,6 +180,9 @@ const App = () => {
         />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="*" element={<NotFound />} />
+        {currentUser && (
+          <Route path="/MyBeerIndex" element={<MyBeerIndex currentUser={currentUser} beers={beers}/>} />
+        )}
       </Routes>
       <Footer />
     </>
