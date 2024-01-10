@@ -163,21 +163,29 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login login={login} />} />
         <Route path="/signup" element={<Signup signup={signup} />} />
-        <Route path="/BeerIndex" element={<BeerIndex beers={beers} />} />
-        <Route
-          path="/BeerShow/:id"
-          element={<BeerShow beers={beers} destroyBeer={destroyBeer} />}
-        />
-        <Route
-          path="/BeerNew"
-          element={
-            <BeerNew createBeer={createBeer} currentUser={currentUser} />
-          }
-        />
-        <Route
-          path="/BeerEdit/:id"
-          element={<BeerEdit beers={beers} updateBeer={updateBeer} />}
-        />
+        {currentUser && (
+          <Route path="/BeerIndex" element={<BeerIndex beers={beers} />} />
+        )}
+        {currentUser && (
+          <Route
+            path="/BeerShow/:id"
+            element={<BeerShow beers={beers} destroyBeer={destroyBeer} />}
+          />
+        )}
+        {currentUser && (
+          <Route
+            path="/BeerNew"
+            element={
+              <BeerNew createBeer={createBeer} currentUser={currentUser} />
+            }
+          />
+        )}
+        {currentUser && (
+          <Route
+            path="/BeerEdit/:id"
+            element={<BeerEdit beers={beers} updateBeer={updateBeer} />}
+          />
+        )}
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="*" element={<NotFound />} />
         {currentUser && (
