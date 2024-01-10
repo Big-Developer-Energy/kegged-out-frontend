@@ -11,28 +11,34 @@ import BeerNew from "./pages/BeerNew";
 import BeerShow from "./pages/BeerShow";
 import NotFound from "./pages/NotFound";
 import mockUser from "./mockUser";
-
+import { userInfo } from "os";
 
 const App = () => {
-  const [currentUser, setCurrentUser] = useState(null)
+  const [currentUser, setCurrentUser] = useState(null);
+
   const [beers, setBeers] = useState([]);
+
   useEffect(() => {
+    const loggedInUser = localStorage.getItem("token");
+    if (loggedInUser) {
+      setCurrentUser(loggedInUser);
+    }
     readBeer();
   }, []);
 
   const createBeer = (beer) => {
-console.log(beer)
+    console.log(beer);
 
-    // fetch("http://localhost:3000/reviews", {
-    //   body: JSON.stringify(beer),
-    //   headers: {
-    //     "content-Type": "apllication/json",
-    //   },
-    //   method: "POST",
-    // })
-    //   .then((response) => response.json())
-    //   .then(() => readBeer())
-    //   .catch((errors) => console.log("beer create errors:", errors));
+    fetch("http://localhost:3000/reviews", {
+      body: JSON.stringify(beer),
+      headers: {
+        "content-Type": "apllication/json",
+      },
+      method: "POST",
+    })
+      .then((response) => response.json())
+      .then(() => readBeer())
+      .catch((errors) => console.log("beer create errors:", errors));
   };
 
   const readBeer = () => {
@@ -69,17 +75,83 @@ console.log(beer)
       .catch((errors) => console.log("Delete Beer errors:", errors));
   };
 
+  const login = (userInfo) => {
+    fetch(`${url}/login`, {
+      body: JSON.stringify(userInfo),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      method: "POST",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        localStorage.setItem("token", response.headers.get("Authorization"));
+        return response.json();
+      })
+      .then((payload) => {
+        setCurrentUser(payload);
+      })
+      .catch((error) => console.log("login errors: ", error));
+  };
+
+  const signup = (userInfo) => {
+    fetch(`${url}/signup`, {
+      body: JSON.stringify(userInfo),
+      header: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      method: "POST",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        localStorage.setItem("token", response.headers.get("Authroization"));
+        return response.json();
+      })
+      .then((payload) => {
+        setCurrentUser(payload);
+      })
+      .catch((error) => console.log("login errors: ", error));
+  };
+
+  const logout = () => {
+    fetch(`${url}/logout`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
+      },
+      method: "DELETE",
+    })
+      .then((payload) => {
+        localStorage.removeItem("token");
+        setCurrentUser(null);
+      })
+      .catch((error) => console.log("log out errors: ", error));
+  };
+
   return (
     <>
-      <Header />
+      <Header current_user={currentUser} logout={logout} />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login login={login} />} />
+        <Route path="/signup" element={<Signup signup={signup} />} />
         <Route path="/BeerIndex" element={<BeerIndex beers={beers} />} />
         <Route
           path="/BeerShow/:id"
           element={<BeerShow beers={beers} destroyBeer={destroyBeer} />}
         />
-        <Route path="/BeerNew" element={<BeerNew createBeer={createBeer}  currentUser={currentUser} />} />
+        <Route
+          path="/BeerNew"
+          element={
+            <BeerNew createBeer={createBeer} currentUser={currentUser} />
+          }
+        />
         <Route
           path="/BeerEdit/:id"
           element={<BeerEdit beers={beers} updateBeer={updateBeer} />}
@@ -90,6 +162,6 @@ console.log(beer)
       <Footer />
     </>
   );
-}
+};
 
 export default App;
