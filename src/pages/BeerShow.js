@@ -15,7 +15,7 @@ import {
 const BeerShow = ({ beers, destroyBeer }) => {
   const { id } = useParams();
   const navigate = useNavigate();
-  let currentBeer = beers.find((beer) => beer.id === +id);
+  let currentBeer = beers?.find((beer) => beer.id === +id);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => {
