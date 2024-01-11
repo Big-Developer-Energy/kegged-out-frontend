@@ -5,12 +5,20 @@ import BeerNew from "../pages/BeerNew";
 
 describe("<BeerNew />", () => {
   const renderNew = () => {
+    const currentUser = {
+      email: "test@test.com",
+      password: "testing123",
+      id: 1,
+    }
     render(
       <BrowserRouter>
-        <BeerNew />
+        <BeerNew currentUser={currentUser}/>
       </BrowserRouter>
     );
   };
+  it("renders without crashing", () => {
+    renderNew()
+  })
   it("renders a new Beer form", () => {
     renderNew();
     
@@ -26,6 +34,7 @@ describe("<BeerNew />", () => {
     expect(locationInput).toBeInTheDocument();
     const imageInput = screen.getByText(/image/i);
     expect(imageInput).toBeInTheDocument();
+
   });
 
   it("has a form with entries for name, rating, description, location, image", () => {
