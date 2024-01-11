@@ -33,7 +33,7 @@ const Login = ({login}) => {
       </form>
       <br />
       <div>
-        Already Registered, <a href="/login">Login</a> here.{" "}
+        Already registered, <a href="/login">login</a> here.{" "}
       </div>
     </div>
   );

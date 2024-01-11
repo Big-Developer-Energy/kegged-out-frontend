@@ -13,24 +13,22 @@ describe("<Login />", () => {
   };
   it("renders a login form", () => {
     renderLogin();
-    
-    const nameInput = screen.getByText(/name/i);
-    expect(nameInput).toBeInTheDocument();
+    screen.logTestingPlaygroundURL()
 
-    const ratingInput = screen.getByText(/rating/i);
-    expect(ratingInput).toBeInTheDocument();
+    const emailInput = screen.getByText(/email/i);
+    expect(emailInput).toBeInTheDocument();
 
-    const descriptionInput = screen.getByText(/description/i);
-    expect(descriptionInput).toBeInTheDocument();
-    const locationInput = screen.getByText(/location/i);
-    expect(locationInput).toBeInTheDocument();
-    const imageInput = screen.getByText(/image/i);
-    expect(imageInput).toBeInTheDocument();
+    const passwordInput = screen.getByText(/password/i);
+    expect(passwordInput).toBeInTheDocument();
   });
 
-  it("has a form with entries for name, rating, description, location, image", () => {
+  it("has a form with entries for email and password", () => {
     renderLogin();
-    const formName = screen.getByText(/name/i);
-    expect(formName.getAttribute("For")).toEqual("name");
+
+    const formEmail = screen.getByRole('textbox', {email: /email/i, });
+    expect(formEmail.getAttribute("type")).toEqual("email");
+
+    const formPassword = screen.getByPlaceholderText(/password/i);
+    expect(formPassword.getAttribute("placeholder")).toEqual("password");
   });
 });
