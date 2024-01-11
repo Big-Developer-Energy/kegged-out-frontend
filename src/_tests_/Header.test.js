@@ -24,6 +24,6 @@ describe("<Header />", () => {
   it("has navigation links", () => {
     router()    
     const homeLink = screen.getAllByRole("link");
-    expect(homeLink.length).toEqual(4);
+    expect(homeLink.length).toEqual(6);
   });
 });

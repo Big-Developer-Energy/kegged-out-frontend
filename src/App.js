@@ -30,11 +30,10 @@ const App = () => {
 
   const createBeer = (beer) => {
     console.log(beer);
-
     fetch("http://localhost:3000/reviews", {
       body: JSON.stringify(beer),
       headers: {
-        "content-Type": "apllication/json",
+        "Content-Type": "application/json",
       },
       method: "POST",
     })
@@ -66,7 +65,7 @@ const App = () => {
   };
 
   const destroyBeer = (id) => {
-    fetch(`http://localhost3000/reviews/${id}`, {
+    fetch(`http://localhost:3000/reviews/${id}`, {
       headers: {
         "Content-Type": "application/json",
       },
@@ -77,12 +76,12 @@ const App = () => {
       .catch((errors) => console.log("Delete Beer errors:", errors));
   };
 
-  const login = (userInfo, id ) => {
-    fetch(`http://localhost3000/login/${id}`, {
+  const login = (userInfo) => {
+    fetch("http://localhost:3000/login", {
       body: JSON.stringify(userInfo),
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json",
+        "Accept": "application/json",
       },
       method: "POST",
     })
@@ -93,52 +92,52 @@ const App = () => {
         localStorage.setItem("token", response.headers.get("Authorization"));
         return response.json();
       })
-      .then((payload) => {
+      .then(payload => {
         setCurrentUser(payload);
       })
-      .catch((error) => console.log("login errors: ", error));
+      .catch(error => console.log("login errors: ", error));
   };
 
-  const signup = (userInfo, id ) => {
-    fetch(`http://localhost3000/signup/${id}`, {
+  const signup = (userInfo) => {
+    fetch("http://localhost:3000/signup", {
       body: JSON.stringify(userInfo),
-      header: {
+      headers: {
         "Content-Type": "application/json",
-        Accept: "application/json",
+        "Accept": "application/json",
       },
       method: "POST",
     })
-      .then((response) => {
+      .then(response => {
         if (!response.ok) {
           throw Error(response.statusText);
         }
         localStorage.setItem("token", response.headers.get("Authroization"));
         return response.json();
       })
-      .then((payload) => {
+      .then(payload => {
         setCurrentUser(payload);
       })
-      .catch((error) => console.log("login errors: ", error));
+      .catch(error => console.log("login errors: ", error));
   };
 
-  const logout = (id) => {
-    fetch(`http://localhost3000/logout/${id}`, {
+  const logout = () => {
+    fetch("http://localhost:3000/logout", {
       headers: {
         "Content-Type": "application/json",
-        Authorization: localStorage.getItem("token"),
+        "Authorization": localStorage.getItem("token"),
       },
-      method: "DELETE",
+      method: "DELETE"
     })
-      .then((payload) => {
+      .then(payload => {
         localStorage.removeItem("token");
         setCurrentUser(null);
       })
-      .catch((error) => console.log("log out errors: ", error));
+      .catch(error => console.log("log out errors: ", error));
   };
 
   return (
     <>
-      <Header current_user={currentUser} logout={logout} />
+      <Header currentUser={currentUser} logout={logout} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login login={login} />} />

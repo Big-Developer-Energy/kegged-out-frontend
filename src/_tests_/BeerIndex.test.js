@@ -1,13 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import BeerIndex from "../pages/BeerIndex";
-import MockBeer from "../MockBeer.js";
+import mockBeer from "../MockBeer";
 
 describe("<BeerIndex />", () => {
     const renderIndex = () => {
       render(
         <BrowserRouter >
-          <BeerIndex beers={MockBeer} />
+          <BeerIndex beers={mockBeer}/>
         </BrowserRouter>
       );
     };
@@ -19,9 +19,14 @@ describe("<BeerIndex />", () => {
   it("renders beer cards", () => {
     renderIndex();
     
-    MockBeer.forEach((beer) => {
+    mockBeer.forEach((beer) => {
       const beerName = screen.getByText(beer.name);
       expect(beerName).toBeInTheDocument();
     });
   });
-});
+  it("has a clickable link", () => {
+    renderIndex();
+  
+    })
+  })
+

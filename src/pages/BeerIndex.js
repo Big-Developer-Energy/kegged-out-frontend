@@ -1,10 +1,8 @@
 import React from "react";
 import { Card, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap";
-import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom";
 
 const BeerIndex = ({ beers }) => {
-
-
   return (
     <>
       <main>
@@ -19,7 +17,9 @@ const BeerIndex = ({ beers }) => {
                   <CardTitle>{beer.name}</CardTitle>
                   <CardSubtitle>{beer.rating}</CardSubtitle>
                   <CardSubtitle>{beer.description}</CardSubtitle>
-                  <NavLink to={`/BeerShow/${beer.id}`}>See more details</NavLink> 
+                  <NavLink to={`/BeerShow/${beer.id}`}>
+                    See more details
+                  </NavLink>
                 </CardBody>
               </Card>
             </>

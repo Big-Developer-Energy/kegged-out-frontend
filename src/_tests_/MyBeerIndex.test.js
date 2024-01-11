@@ -1,34 +1,32 @@
-import React from "react"
-import { render, screen } from "@testing-library/react"
-import MyBeerIndex from "../pages/MyBeerIndex"
-import { BrowserRouter, useParams } from "react-router-dom"
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import MyBeerIndex from "../pages/MyBeerIndex";
+import { BrowserRouter, useParams } from "react-router-dom";
+import mockBeer from "../MockBeer";
 
 describe("<MyBeerIndex />", () => {
-  beforeEach(() => {
-    const currentUser = {
-      email: "test@test.com",
-      password: "testing123",
-      id: 1,
-    }
-    const userBeers = [
-      {
-        name: 'Heineken',
-        rating: 4,
-        description: 'Smooth and crisp',
-        location: 'National City',
-        image: 'image',
-        user_id: 1,
-      },
-    ]
+  const currentUser = {
+    email: "test@test.com",
+    password: "testing123",
+    id: 1,
+  };
+
+  const renderMyBeerIndex = () => {
     render(
       <BrowserRouter>
-        <MyBeerIndex currentUser={currentUser} myBeers={userBeers} />
+        <MyBeerIndex currentUser={currentUser} beers={mockBeer} />
       </BrowserRouter>
-    )
-  })
+    );
+  };
 
   it("renders without crashing", () => {
-    const element = screen.getByText("My Beers")
-    expect(element).toBeInTheDocument()
-  })
-})
+    renderMyBeerIndex();
+  });
+  it("renders beer cards", () => {
+    renderMyBeerIndex();
+    mockBeer.forEach((beer) => {
+      const beerName = screen.getByText(beer.name);
+      expect(beerName).toBeInTheDocument();
+    });
+  });
+});

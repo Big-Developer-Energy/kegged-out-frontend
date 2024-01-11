@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Signup = ({signup}) => {
+const Signup = ({ signup }) => {
   const navigate = useNavigate();
 
   const formRef = useRef();
