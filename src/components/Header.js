@@ -10,13 +10,15 @@ const Header = ({currentUser, logout}) => {
     <>
     <div className="navigation-bar">
     <div className="header">
+      <div className="title">
       <h1>Kegged Out</h1>
       <img
         className="keg"
         src={keggedOut}
         alt="keg"
         style={{ height: "50px", width: "50px" }}
-      />
+        />
+        </div>
     </div>
         <Nav className="nav-link">
             <NavItem>

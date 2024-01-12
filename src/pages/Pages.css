@@ -1,0 +1,51 @@
+.home-link {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+}
+
+.home-link a {
+  background-color: #c96142;
+  color: white;
+  border-radius: 8px;
+  height: 45px;
+  width: 70px;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.home-link a:hover {
+  color: black;
+}
+
+.home-images {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  position: relative;
+}
+
+.home-images img {
+  margin: auto;
+  border-radius: 8px;
+}
+
+.home-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px;
+  position: relative;
+}
+
+.home-text img {
+  border-radius: 8px;
+  float: left;
+}
+
+.home-text p {
+    flex-wrap: wrap;
+    font-size: 25px;
+    margin-left: 15px;
+}

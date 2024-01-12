@@ -142,9 +142,9 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login login={login} />} />
         <Route path="/signup" element={<Signup signup={signup} />} />
-        {currentUser && (
+       
           <Route path="/BeerIndex" element={<BeerIndex beers={beers} />} />
-        )}
+        
         {currentUser && (
           <Route
             path="/BeerShow/:id"
