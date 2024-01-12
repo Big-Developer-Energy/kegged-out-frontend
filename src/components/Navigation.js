@@ -1,5 +1,9 @@
 import { Nav, NavItem, Input, Button } from "reactstrap";
 import { NavLink, useNavigate } from "react-router-dom";
+import "../components/components.css"
+
+
+
 
 const Navigation = ({ currentUser, logout }) => {
   const navigate = useNavigate();
@@ -11,6 +15,7 @@ const Navigation = ({ currentUser, logout }) => {
   };
 
   return (
+    <div className="login-container">
     <Nav className="nav">
       {currentUser && (
         <NavItem>
@@ -32,6 +37,7 @@ const Navigation = ({ currentUser, logout }) => {
         </>
       )}
     </Nav>
+    </div>
   );
 };
 
