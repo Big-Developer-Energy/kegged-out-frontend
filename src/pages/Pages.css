@@ -1,3 +1,5 @@
+/* Home  */
+
 .home-link {
   display: flex;
   padding: 10px;
@@ -48,4 +50,33 @@
     flex-wrap: wrap;
     font-size: 25px;
     margin-left: 15px;
+}
+
+/* Not Found  */
+.terminal-container {
+  background-color: black;
+  color: white;
+  height: 35rem;
+  display: flex;
+  margin: auto;
+  margin-top: 100px;
+  width: 60%;
+  padding: 10px;
+}
+
+.terminal-container input {
+  height: 1rem;
+  width: 100%;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  color: white;
+}
+
+.terminal {
+
+background-color: white;
+  align-items: first baseline;
 }

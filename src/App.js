@@ -17,8 +17,8 @@ import Login from "./pages/Login";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
-
   const [beers, setBeers] = useState([]);
+  const [input, setInput] = useState("")
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("token");
@@ -135,6 +135,17 @@ const App = () => {
       .catch(error => console.log("log out errors: ", error));
   };
 
+  const handleNotFoundChange = (e) => {
+    setInput(e.target.value)
+  }
+
+  const handleNotFoundKey = (e) => {
+    let key = e.key
+    if(key === "Enter"){
+      alert("test")
+    }
+  }
+
   return (
     <>
       <Header currentUser={currentUser} logout={logout} />
@@ -172,7 +183,7 @@ const App = () => {
           />
         )}
         <Route path="/AboutUs" element={<AboutUs />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<NotFound input={input} handleNotFoundChange={handleNotFoundChange} handleNotFoundKey={handleNotFoundKey}/>} />
       </Routes>
       <Footer />
     </>
