@@ -1,0 +1,22 @@
+.header {
+  color: #c96142;
+  display: flex;
+  padding: 10px;
+  transition: box-shadow 0.3 ease;
+}
+
+.navigation-bar {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  background-color: aqua;
+  text-decoration: none;
+}
+
+.nav-link {
+  justify-content: space-around;
+  flex-wrap: wrap;
+  display: inline;
+  margin: auto;
+  float: left;
+}

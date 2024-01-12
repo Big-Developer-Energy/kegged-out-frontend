@@ -3,11 +3,13 @@ import keggedOut from "../assets/keggedOut.jpg"
 import { Nav, NavItem } from "reactstrap"
 import { NavLink } from "react-router-dom"
 import Navigation from "./Navigation";
+import "../components/components.css";
 
 const Header = ({currentUser, logout}) => {
   return (
     <>
-    <div className="Header">
+    <div className="navigation-bar">
+    <div className="header">
       <h1>Kegged Out</h1>
       <img
         className="keg"
@@ -16,8 +18,7 @@ const Header = ({currentUser, logout}) => {
         style={{ height: "50px", width: "50px" }}
       />
     </div>
-    <div className="Navigation bar">
-        <Nav>
+        <Nav className="nav-link">
             <NavItem>
                 <NavLink to="/">Home</NavLink>
             </NavItem>
