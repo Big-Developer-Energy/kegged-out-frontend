@@ -12,6 +12,7 @@
   width: 70px;
   padding: 12px;
   text-decoration: none;
+  position: relative;
 }
 
 .home-link a:hover {

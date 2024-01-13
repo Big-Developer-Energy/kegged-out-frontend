@@ -1,0 +1,37 @@
+.about-title {
+    font-family: Newsreader-Regular;
+}
+
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    margin:15px;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.card-body {
+    background-color: #F6DDCC;
+    width: 100%;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.card-body h6{
+    background-color: aqua;
+    font-size: 20px;
+}
+
+.card a {
+    background-color: #c54620;
+    font-size: 20px;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
