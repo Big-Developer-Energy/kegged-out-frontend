@@ -3,7 +3,7 @@
 }
 
 .card {
-    display: flex;
+    display: inline;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
@@ -12,7 +12,7 @@
 
 .card img {
     width: 100%;
-    border-radius: 8px;
+   border-radius: 5px;
 }
 
 .card-body {
@@ -20,11 +20,12 @@
     width: 100%;
     text-align: center;
     flex-wrap: wrap;
+    border-radius: 5px;
 }
 
 .card-body h6{
-    background-color: aqua;
     font-size: 20px;
+    color: #c54620 !important;
 }
 
 .card a {

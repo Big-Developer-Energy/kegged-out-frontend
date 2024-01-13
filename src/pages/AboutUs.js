@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Card,
-  CardBody,
-  CardText,
-  CardTitle,
-  CardSubtitle,
-  
-} from "reactstrap";
+import { Card, CardBody, CardText, CardTitle, CardSubtitle } from "reactstrap";
 import "../pages/Aboutus.css";
 const AboutUs = () => {
   return (
@@ -27,7 +20,9 @@ const AboutUs = () => {
               Product Manager
             </CardSubtitle>
             <CardText>About Me:</CardText>
-            <CardText>Skills:</CardText>
+            <CardText>
+              Skills: HTML, React, Ruby, Ruby on Rails, PostgreSQL
+            </CardText>
             <>
               <a
                 href="https://www.linkedin.com/in/alexander-d-nguyen/"
@@ -56,7 +51,9 @@ const AboutUs = () => {
               Design Lead
             </CardSubtitle>
             <CardText>About Me:</CardText>
-            <CardText>Skills:</CardText>
+            <CardText>
+              Skills: HTML, React, Ruby, Ruby on Rails, PostgreSQL
+            </CardText>
             <>
               <a
                 href="https://www.linkedin.com/in/chandlergipson/"
@@ -86,7 +83,9 @@ const AboutUs = () => {
               Tech Lead
             </CardSubtitle>
             <CardText>About Me:</CardText>
-            <CardText>Skills:</CardText>
+            <CardText>
+              Skills: HTML, React, Ruby, Ruby on Rails, PostgreSQL
+            </CardText>
             <>
               <a href="https://www.linkedin.com/in/dannydlr/" target="blank">
                 LinkedIn
@@ -108,11 +107,15 @@ const AboutUs = () => {
           <img alt="Sample" src="https://picsum.photos/300/200" />
           <CardBody>
             <CardTitle tag="h5">Dalton McAuliffe</CardTitle>
+
             <CardSubtitle className="mb-2 text-muted" tag="h6">
               Project Manajor
             </CardSubtitle>
+
             <CardText>About Me:</CardText>
-            <CardText>Skills:</CardText>
+            <CardText>
+              Skills: HTML, React, Ruby, Ruby on Rails, PostgreSQL
+            </CardText>
             <>
               <a
                 href="https://www.linkedin.com/in/dalton-mcauliffe/"
