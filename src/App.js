@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
@@ -14,11 +14,12 @@ import MyBeerIndex from "./pages/MyBeerIndex";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 
-
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const [beers, setBeers] = useState([]);
-  const [input, setInput] = useState("")
+  const [input, setInput] = useState("");
+  const [output, setOutput] = useState("");
+  const inputRef = useRef();
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("token");
@@ -26,6 +27,10 @@ const App = () => {
       setCurrentUser(loggedInUser);
     }
     readBeer();
+  }, []);
+  
+  useEffect(() => {
+    inputRef.current.focus();
   }, []);
 
   const createBeer = (beer) => {
@@ -81,7 +86,7 @@ const App = () => {
       body: JSON.stringify(userInfo),
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json",
+        Accept: "application/json",
       },
       method: "POST",
     })
@@ -92,10 +97,10 @@ const App = () => {
         localStorage.setItem("token", response.headers.get("Authorization"));
         return response.json();
       })
-      .then(payload => {
+      .then((payload) => {
         setCurrentUser(payload);
       })
-      .catch(error => console.log("login errors: ", error));
+      .catch((error) => console.log("login errors: ", error));
   };
 
   const signup = (userInfo) => {
@@ -103,47 +108,63 @@ const App = () => {
       body: JSON.stringify(userInfo),
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json",
+        Accept: "application/json",
       },
       method: "POST",
     })
-      .then(response => {
+      .then((response) => {
         if (!response.ok) {
           throw Error(response.statusText);
         }
         localStorage.setItem("token", response.headers.get("Authroization"));
         return response.json();
       })
-      .then(payload => {
+      .then((payload) => {
         setCurrentUser(payload);
       })
-      .catch(error => console.log("login errors: ", error));
+      .catch((error) => console.log("login errors: ", error));
   };
 
   const logout = () => {
     fetch("http://localhost:3000/logout", {
       headers: {
         "Content-Type": "application/json",
-        "Authorization": localStorage.getItem("token"),
+        Authorization: localStorage.getItem("token"),
       },
-      method: "DELETE"
+      method: "DELETE",
     })
-      .then(payload => {
+      .then((payload) => {
         localStorage.removeItem("token");
         setCurrentUser(null);
       })
-      .catch(error => console.log("log out errors: ", error));
+      .catch((error) => console.log("log out errors: ", error));
   };
 
   const handleNotFoundChange = (e) => {
-    setInput(e.target.value)
-  }
+    setInput(e.target.value);
+  };
+
+  // const commandList = () => {
+  //   if(input === "pwd")
+  // }
 
   const handleNotFoundKey = (e) => {
-    let key = e.key
-    if(key === "Enter"){
-      alert("test")
-    }
+    let key = e.key;
+    let newOutput = `${output}\n $${input}\n`;
+    if (key === "Enter") {
+      setOutput(newOutput);
+      setInput("");
+    } 
+    // else {
+    //   setOutput(
+    //     "$This command was not recognized, type help for a list of available commands"
+    //   );
+    // }
+  };
+
+  const handleNotFoundClick = (e) => {
+    inputRef.current.focus();
+
   }
 
   return (
@@ -153,9 +174,9 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login login={login} />} />
         <Route path="/signup" element={<Signup signup={signup} />} />
-       
-          <Route path="/BeerIndex" element={<BeerIndex beers={beers} />} />
-        
+
+        <Route path="/BeerIndex" element={<BeerIndex beers={beers} />} />
+
         {currentUser && (
           <Route
             path="/BeerShow/:id"
@@ -183,7 +204,18 @@ const App = () => {
           />
         )}
         <Route path="/AboutUs" element={<AboutUs />} />
-        <Route path="*" element={<NotFound input={input} handleNotFoundChange={handleNotFoundChange} handleNotFoundKey={handleNotFoundKey}/>} />
+        <Route
+          path="*"
+          element={
+            <NotFound
+              input={input}
+              output={output}
+              inputRef={inputRef}
+              handleNotFoundChange={handleNotFoundChange}
+              handleNotFoundKey={handleNotFoundKey} handleNotFoundClick={handleNotFoundClick}
+            />
+          }
+        />
       </Routes>
       <Footer />
     </>

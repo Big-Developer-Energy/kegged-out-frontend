@@ -47,9 +47,9 @@
 }
 
 .home-text p {
-    flex-wrap: wrap;
-    font-size: 25px;
-    margin-left: 15px;
+  flex-wrap: wrap;
+  font-size: 25px;
+  margin-left: 15px;
 }
 
 /* Not Found  */
@@ -57,7 +57,6 @@
   background-color: black;
   color: white;
   height: 35rem;
-  display: flex;
   margin: auto;
   margin-top: 100px;
   width: 60%;
@@ -76,7 +75,5 @@
 }
 
 .terminal {
-
-background-color: white;
-  align-items: first baseline;
+  white-space: pre-line;
 }
