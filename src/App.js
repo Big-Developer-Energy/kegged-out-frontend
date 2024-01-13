@@ -145,20 +145,18 @@ const App = () => {
        
           <Route path="/BeerIndex" element={<BeerIndex beers={beers} />} />
         
-        {currentUser && (
           <Route
-            path="/BeerShow/:id"
-            element={<BeerShow beers={beers} destroyBeer={destroyBeer} />}
-          />
-        )}
-        {currentUser && (
-          <Route
-            path="/BeerNew"
-            element={
-              <BeerNew createBeer={createBeer} currentUser={currentUser} />
+          path="/BeerNew"
+          element={
+            <BeerNew createBeer={createBeer} currentUser={currentUser} />
             }
           />
-        )}
+        {currentUser && (
+          <Route
+          path="/BeerShow/:id"
+          element={<BeerShow beers={beers} destroyBeer={destroyBeer} />}
+          />
+          )}
         {currentUser && (
           <Route
             path="/BeerEdit/:id"

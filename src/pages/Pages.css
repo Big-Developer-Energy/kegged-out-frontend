@@ -49,3 +49,37 @@
     font-size: 25px;
     margin-left: 15px;
 }
+
+/* Beer New */
+.beer-new-title {
+  text-align: center;
+}
+
+.beer-new-form {
+  background-image: url("/src/assets/cheers.jpg");
+  background-color: black;
+  height: 500px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  justify-content: center;
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 20px;
+}
+
+.beer-new-form button {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.beer-new-form-group Label {
+  color: #c96142;
+  font-size: 20px;
+}
+
+.beer-new-form-group Input {
+  margin: auto;
+  text-align: center;
+  width: 300px;
+}
