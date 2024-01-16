@@ -71,41 +71,65 @@
   text-decoration: none;
 }
 
-/* this is for the email and password */
+/* this is for the handlesubmit */
 .login-info form {
-  margin-top: 0px;
   text-align: center;
-  border-radius: 8px;
   color: #c96142;
-  padding: 0%;
-}
-
-/* this is for the handlesubmit characteristics*/
-.login-info input {
-  margin-bottom: 100px;
-  border-radius: 5px;
-  color: #c96142;
+  max-width: 300px;
   font-size: 20px;
 }
 
-.login-info .input-container {
-    padding: 50px;
-  }
+.login-info input[type="email"] {
+  margin-bottom: 20px;
+  border-radius: 8px;
+  width: 100%;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
 
+.login-info input[type="password"] {
+  margin-bottom: 20px;
+  border-radius: 8px;
+  width: 100%;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.login-info label[for="password"] {
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.input-container {
+  text-shadow: 2px 2px 2px white (0, 0, 0, 0.9);
+}
+
+/* this is the submit button */
+.login-info input[type="submit"] {
+  margin-bottom: 20px;
+  background-color: white;
+  color: #c96142;
+  border-radius: 5px;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* header with the word "login" */
 .login-header {
   text-align: center;
   background-color: white;
-  width: 1500px;
+  width: fit-content;
+  margin: 0 auto;
   height: 80px;
   font-weight: bold;
   font-family: ˝ "Newsreader", serif;
+  color: black;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
+/* registration info at the buttom of the page */
 .registration-login {
   color: black;
+  text-align: center;
+  /* text-decoration: none; */
 }
 
 .registration-login a:hover {
-  color: blue;
-  text-decoration: none;
+  color: white;
 }

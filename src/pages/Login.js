@@ -27,11 +27,12 @@ const Login = ({ login }) => {
       <h1 className="login-header">Login</h1>
       <div className="login-info">
         <form ref={formRef} onSubmit={handleSubmit}>
-          Email: <input type="email" name="email" placeholder="email" />
-          <br />
+          <div className="input-container"> Email: <input type="email" name="email" placeholder="email" />
+          </div>
+          <div className="input-container">
           Password:{" "}
           <input type="password" name="password" placeholder="password" />
-          <br />
+          </div>
           <input type="submit" value={"Submit"} />
         </form>
         <br />
