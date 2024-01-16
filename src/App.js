@@ -28,7 +28,7 @@ const App = () => {
     }
     readBeer();
   }, []);
-  
+
   useEffect(() => {
     inputRef.current.focus();
   }, []);
@@ -140,32 +140,43 @@ const App = () => {
       .catch((error) => console.log("log out errors: ", error));
   };
 
+  // Not Found Page
+
   const handleNotFoundChange = (e) => {
     setInput(e.target.value);
   };
 
-  // const commandList = () => {
-  //   if(input === "pwd")
-  // }
+ 
 
   const handleNotFoundKey = (e) => {
     let key = e.key;
+    let commandList = () => {
+      if (input === "pwd") {
+        setOutput(
+          "Welcome to our Brewery, here you can learn more about the creators of this website"
+        );
+      } else if (input === "about") {
+        setOutput(
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Porttitor massa id neque aliquam vestibulum morbi blandit cursus risus. Diam in arcu cursus euismod quis viverra nibh. Quam pellentesque nec nam aliquam sem. Rhoncus dolor purus non enim praesent elementum facilisis leo. "
+        );
+      } else if (input === "Secret") {
+        setOutput("Secret thing");
+      } else if (input === "help") {
+        setOutput("List of commands");
+      } else {
+        setOutput("$This command was not recognized, type 'help' for a list of available commands")
+      }
+    };
     let newOutput = `${output}\n $${input}\n`;
     if (key === "Enter") {
       setOutput(newOutput);
       setInput("");
-    } 
-    // else {
-    //   setOutput(
-    //     "$This command was not recognized, type help for a list of available commands"
-    //   );
-    // }
+    }
   };
 
   const handleNotFoundClick = (e) => {
     inputRef.current.focus();
-
-  }
+  };
 
   return (
     <>
@@ -212,7 +223,8 @@ const App = () => {
               output={output}
               inputRef={inputRef}
               handleNotFoundChange={handleNotFoundChange}
-              handleNotFoundKey={handleNotFoundKey} handleNotFoundClick={handleNotFoundClick}
+              handleNotFoundKey={handleNotFoundKey}
+              handleNotFoundClick={handleNotFoundClick}
             />
           }
         />
