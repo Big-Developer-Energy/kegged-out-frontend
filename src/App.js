@@ -163,6 +163,7 @@ const App = () => {
       setInput(""); // Clear the input field
     }
   };
+  
   const processCommand = (command) => {
     let listOfCommands = ["pwd\n", "about\n", "secret\n", "help"];
     if (input === "pwd") {
