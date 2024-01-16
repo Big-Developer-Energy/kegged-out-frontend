@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form, FormGroup, Input, Label } from "reactstrap";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const BeerNew = ({ createBeer, currentUser }) => {
   const navigate = useNavigate();
@@ -10,7 +10,7 @@ const BeerNew = ({ createBeer, currentUser }) => {
     description: "",
     location: "",
     image: "",
-    user_id: currentUser.id
+    // user_id: currentUser.id
   });
 
   const handleChange = (e) => {
@@ -24,8 +24,11 @@ const BeerNew = ({ createBeer, currentUser }) => {
 
   return (
     <>
-      <FormGroup>
-        <Label for="name">Name</Label>
+    <h1 className="beer-new-title">Create a Brewview</h1>
+    <div className="beer-new-form">
+    <Form>
+      <FormGroup className="beer-new-form-group">
+        <Label for="name">Beer Name</Label>
         <Input
           id="name"
           type="text"
@@ -34,7 +37,7 @@ const BeerNew = ({ createBeer, currentUser }) => {
           value={newBeer.name}
         />
       </FormGroup>
-      <FormGroup>
+      <FormGroup className="beer-new-form-group">
         <Label for="rating">Rating</Label>
         <Input
           id="rating"
@@ -44,8 +47,8 @@ const BeerNew = ({ createBeer, currentUser }) => {
           value={newBeer.rating}
         />
       </FormGroup>
-      <FormGroup>
-        <Label for="description">Description</Label>
+      <FormGroup className="beer-new-form-group">
+        <Label for="description">Description of Beer</Label>
         <Input
           id="descritpion"
           type="text"
@@ -54,8 +57,8 @@ const BeerNew = ({ createBeer, currentUser }) => {
           value={newBeer.description}
         />
       </FormGroup>
-      <FormGroup>
-        <Label for="location">Location</Label>
+      <FormGroup className="beer-new-form-group">
+        <Label for="location">Brewery Name/Location</Label>
         <Input
           id="location"
           type="text"
@@ -64,8 +67,8 @@ const BeerNew = ({ createBeer, currentUser }) => {
           value={newBeer.location}
         />
       </FormGroup>
-      <FormGroup>
-        <Label for="image">Image</Label>
+      <FormGroup className="beer-new-form-group">
+        <Label for="image">Upload Image</Label>
         <Input
           id="image"
           type="text"
@@ -75,8 +78,10 @@ const BeerNew = ({ createBeer, currentUser }) => {
         />
       </FormGroup>
       <button onClick={handleSubmit} name="submit">
-        Submit Beer
+        Submit Beer Review
       </button>
+      </Form>
+      </div>
     </>
   );
 };
