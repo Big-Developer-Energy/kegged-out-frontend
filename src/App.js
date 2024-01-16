@@ -18,8 +18,10 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const [beers, setBeers] = useState([]);
   const [input, setInput] = useState("");
-  const [output, setOutput] = useState("");
+  const [output, setOutput] = useState([]);
   const inputRef = useRef();
+
+  
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("token");
@@ -146,37 +148,35 @@ const App = () => {
     setInput(e.target.value);
   };
 
- 
-
-  const handleNotFoundKey = (e) => {
-    let key = e.key;
-    let commandList = () => {
-      if (input === "pwd") {
-        setOutput(
-          "Welcome to our Brewery, here you can learn more about the creators of this website"
-        );
-      } else if (input === "about") {
-        setOutput(
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Porttitor massa id neque aliquam vestibulum morbi blandit cursus risus. Diam in arcu cursus euismod quis viverra nibh. Quam pellentesque nec nam aliquam sem. Rhoncus dolor purus non enim praesent elementum facilisis leo. "
-        );
-      } else if (input === "Secret") {
-        setOutput("Secret thing");
-      } else if (input === "help") {
-        setOutput("List of commands");
-      } else {
-        setOutput("$This command was not recognized, type 'help' for a list of available commands")
-      }
-    };
-    let newOutput = `${output}\n $${input}\n`;
-    if (key === "Enter") {
-      setOutput(newOutput);
-      setInput("");
-    }
-  };
-
   const handleNotFoundClick = (e) => {
     inputRef.current.focus();
   };
+
+  const handleNotFoundKey = (e) => {
+    let key = e.key;
+    if (key === "Enter") {
+      const newOutput = [
+        ...output,
+        { command: input, response: processCommand(input) },
+      ];
+      setOutput(newOutput);
+      setInput(""); // Clear the input field
+    }
+  };
+  const processCommand = (command) => {
+    let listOfCommands = ["pwd\n", "about\n", "secret\n", "help"];
+    if (input === "pwd") {
+      return "Welcome to our Brewery, here you can learn more about the creators of this website";
+    } else if (input === "about") {
+      return "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Porttitor massa id neque aliquam vestibulum morbi blandit cursus risus. Diam in arcu cursus euismod quis viverra nibh. Quam pellentesque nec nam aliquam sem. Rhoncus dolor purus non enim praesent elementum facilisis leo.";
+    } else if (input === "secret") {
+      return "Secret thing";
+    } else if (input === "help") {
+      return listOfCommands;
+    } else {
+      return `'${command}' was not recognized, type 'help' for a list of available commands`
+    }
+  }
 
   return (
     <>

@@ -64,7 +64,7 @@
 }
 
 .terminal-container input {
-  height: 1rem;
+  height: 28px;
   width: 100%;
   border: none;
   outline: none;
@@ -76,4 +76,9 @@
 
 .terminal {
   white-space: pre-line;
+}
+
+.input {
+  display: flex;
+  justify-content:safe;
 }
