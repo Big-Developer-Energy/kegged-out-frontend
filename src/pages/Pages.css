@@ -65,21 +65,28 @@
   justify-content: center;
   text-align: center;
   padding-top: 10px;
-  margin-bottom: 20px;
-}
-
-.beer-new-form button {
-  margin-top: 6px;
-  margin-bottom: 6px;
+  margin-bottom: 40px;
 }
 
 .beer-new-form-group Label {
   color: #c96142;
-  font-size: 20px;
+  font-size: 22px;
 }
 
 .beer-new-form-group Input {
   margin: auto;
   text-align: center;
   width: 300px;
+}
+
+.beer-new-form button {
+  background-color: #c96142;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.beer-new-form button:hover {
+  color: black;
 }
