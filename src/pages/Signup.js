@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import beercheer from "../assets/beercheer.jpg";
 
 const Signup = ({ signup }) => {
   const navigate = useNavigate();
@@ -22,25 +23,33 @@ const Signup = ({ signup }) => {
   };
 
   return (
-    <div>
+    <div className="signup-info">
+      <h1 className="signup-header">Sign Up</h1>
       <form ref={formRef} onSubmit={handleSubmit}>
-        Email: <input type="email" name="email" placeholder="email" />
-        <br />
-        Password:{" "}
-        <input type="password" name="password" placeholder="password" />
-        <br />
-        Confirm Password:{" "}
-        <input
-          type="password"
-          name="password_confirmation"
-          placeholder="confirm password"
-        />
-        <br />
+        <div className="input-container">
+          Email: <input type="email" name="email" placeholder="email" />
+        </div>
+        <div className="input-container">
+          Password:{" "}
+          <input type="password" name="password" placeholder="password" />
+        </div>
+        <div className="input-container">
+          Confirm Password:{" "}
+          <input
+            type="password"
+            name="password_confirmation"
+            placeholder="confirm password"
+          />
+        </div>
         <input type="submit" value={"Submit"} />
       </form>
       <br />
-      <div>
-        Already Registered, <a href="/login">Login</a> here.{" "}
+      <div className="registration-sentence">
+        Already Registered, {" "} 
+        <a href="/login" className="registration-login">
+          LOGIN
+          </a>{" "} 
+          here!{" "}
       </div>
     </div>
   );
