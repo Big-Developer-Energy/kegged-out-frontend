@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./App.css";
 import { Routes, Route } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
 import Header from "./components/Header";
@@ -13,6 +13,7 @@ import NotFound from "./pages/NotFound";
 import MyBeerIndex from "./pages/MyBeerIndex";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import "./App.css";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -20,8 +21,6 @@ const App = () => {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState([]);
   const inputRef = useRef();
-
-  
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("token");
@@ -34,6 +33,8 @@ const App = () => {
   useEffect(() => {
     inputRef.current.focus();
   }, []);
+
+  const navigate = useNavigate();
 
   const createBeer = (beer) => {
     console.log(beer);
@@ -163,9 +164,16 @@ const App = () => {
       setInput(""); // Clear the input field
     }
   };
-  
+
   const processCommand = (command) => {
-    let listOfCommands = ["pwd\n", "about\n", "secret\n", "help"];
+    let listOfCommands = [
+      "pwd\n",
+      "about\n",
+      "secret\n",
+      "help\n",
+      "clear\n",
+      "home",
+    ];
     if (input === "pwd") {
       return "Welcome to our Brewery, here you can learn more about the creators of this website";
     } else if (input === "about") {
@@ -174,10 +182,18 @@ const App = () => {
       return "Secret thing";
     } else if (input === "help") {
       return listOfCommands;
+    } else if (input === "clear") {
+      return "some function that clears the terminal";
+    } else if (input === "home") {
+      setTimeout(() => {
+        navigate("/")
+      }, 3000 )
+      setInput("")
+      return "Opening Kegged Out..."
     } else {
-      return `'${command}' was not recognized, type 'help' for a list of available commands`
+      return `'${command}' was not recognized, type 'help' for a list of available commands`;
     }
-  }
+  };
 
   return (
     <>

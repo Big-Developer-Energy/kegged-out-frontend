@@ -9,6 +9,7 @@ const NotFound = ({
   handleNotFoundClick,
   inputRef,
 }) => {
+
   return (
     <>
       <div className="terminal-container" onClick={handleNotFoundClick}>
