@@ -3,24 +3,28 @@
 }
 
 .card {
-    display: inline;
+    display: flex;
+    justify-content: space-around;
     flex-wrap: wrap;
-    align-items: center;
     justify-content: space-evenly;
-    margin:15px;
+    margin:0, auto;
+    padding: 10px, 10px;
+    position: static;
+    margin-bottom: 50px;
+    align-content: center;
 }
 
 .card img {
-    width: 100%;
+    display: flex;
    border-radius: 5px;
+   justify-content: center;
 }
 
 .card-body {
-    background-color: #F6DDCC;
-    width: 100%;
     text-align: center;
     flex-wrap: wrap;
     border-radius: 5px;
+    justify-content: space-around;
 }
 
 .card-body h6{
