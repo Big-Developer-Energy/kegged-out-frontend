@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap";
+import { Card, CardBody, CardTitle, CardSubtitle, Button, CardText } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import "../pages/BeerIndex.css";
 const BeerIndex = ({ beers }) => {
@@ -13,12 +13,12 @@ const BeerIndex = ({ beers }) => {
           return (
             <>
               <div>
-                <Card className="card" key={index} style={{ width: "14rem" }}>
+                <Card className="beer-card" key={index} style={{width:"16rem"}} >
                   <img alt={`beer review ${beer.name}`} src={beer.image} />
                   <CardBody>
                     <CardTitle>{beer.name}</CardTitle>
                     <CardSubtitle>{beer.rating}</CardSubtitle>
-                    <CardSubtitle>{beer.description}</CardSubtitle>
+                    <CardText>{beer.description}</CardText>
                     <NavLink to={`/BeerShow/${beer.id}`}>
                       See more details
                     </NavLink>

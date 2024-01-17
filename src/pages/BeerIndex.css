@@ -1,31 +1,30 @@
 .beers-title {
     font-size: 64px;
     font-family: Newsreader-Regular;
+    border-bottom:1px solid black;
 }
+/* wraps the cards */
 .beer-container {
-    width: auto;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 70px;
+    position:static; 
+}
+
+.beer-container img {
+    height: 200px;
+    width: 16rem;
+}
+/* end of beer-container */
+
+/* beer-card is for the beers */
+.beer-card {
     display: flex;
     justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    height: 400px;
 }
 
-.card {
-  display: flex;
-  margin: 0 auto;
-  text-align: center;
-  align-items: center;
-  margin-bottom: 20px;  
-}
-.card img {
-    display: flex;
-   border-radius: 5px;
-   justify-content: center;
-}
-
-.card a {
-    background-color: #c54620;
-    font-size: 20px;
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
-}
+/* Styling of the Cards is in Aboutus.CSS */
 
