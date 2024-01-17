@@ -1,3 +1,5 @@
+/* Home  */
+
 .home-link {
   display: flex;
   padding: 10px;
@@ -53,10 +55,50 @@
 
 
 
+/* Not Found  */
+.terminal-container {
+  background-color: black;
+  color: white;
+  border: bold white;
+  height: 40rem;
+  width: 60%;
+  margin: auto;
+  margin-top: 50px;
+  padding: 10px;
+  overflow: scroll;
+  font-family: monospace;
+}
 
-/* this is the styling for the login page */
+.terminal-container input {
+  height: 28px;
+  width: 100%;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  color: white;
+  caret-color: transparent;
+  font-family: monospace;
+  padding: 0;
+  text-align: left;
+}
 
+.terminal {
+  white-space: pre-line;
+  word-wrap: break-word;
+}
 
+.input {
+  display: flex;
+  justify-content: safe;
+}
+
+.error-message{
+  font-family: monospace;
+}
+.command-message{
+  font-family: monospace;
 
 
 .login-info {
@@ -113,6 +155,7 @@
   color: #c96142;
   border-radius: 5px;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+
 }
 
 /* header with the word "login" */
@@ -219,6 +262,48 @@ font-weight: bold;
   /* text-decoration: none; */
 }
 
-/* .registration-login a:hover {
+
+.registration-login a:hover {
+  color: white;
+}
+
+/* Beer New */
+.beer-new-title {
+  text-align: center;
+}
+
+.beer-new-form {
+  background-image: url("/src/assets/cheers.jpg");
+  background-color: black;
+  height: 500px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  justify-content: center;
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 40px;
+}
+
+.beer-new-form-group Label {
   color: #c96142;
-} */
+  font-size: 22px;
+}
+
+.beer-new-form-group Input {
+  margin: auto;
+  text-align: center;
+  width: 300px;
+}
+
+.beer-new-form button {
+  background-color: #c96142;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.beer-new-form button:hover {
+  color: black;
+}

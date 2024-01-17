@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
@@ -13,11 +12,10 @@ import NotFound from "./pages/NotFound";
 import MyBeerIndex from "./pages/MyBeerIndex";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-
+import "./App.css";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
-
   const [beers, setBeers] = useState([]);
 
   useEffect(() => {
@@ -81,7 +79,7 @@ const App = () => {
       body: JSON.stringify(userInfo),
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json",
+        Accept: "application/json",
       },
       method: "POST",
     })
@@ -92,10 +90,10 @@ const App = () => {
         localStorage.setItem("token", response.headers.get("Authorization"));
         return response.json();
       })
-      .then(payload => {
+      .then((payload) => {
         setCurrentUser(payload);
       })
-      .catch(error => console.log("login errors: ", error));
+      .catch((error) => console.log("login errors: ", error));
   };
 
   const signup = (userInfo) => {
@@ -103,36 +101,36 @@ const App = () => {
       body: JSON.stringify(userInfo),
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json",
+        Accept: "application/json",
       },
       method: "POST",
     })
-      .then(response => {
+      .then((response) => {
         if (!response.ok) {
           throw Error(response.statusText);
         }
         localStorage.setItem("token", response.headers.get("Authroization"));
         return response.json();
       })
-      .then(payload => {
+      .then((payload) => {
         setCurrentUser(payload);
       })
-      .catch(error => console.log("login errors: ", error));
+      .catch((error) => console.log("login errors: ", error));
   };
 
   const logout = () => {
     fetch("https://kegged-out-be.onrender.com/logout", {
       headers: {
         "Content-Type": "application/json",
-        "Authorization": localStorage.getItem("token"),
+        Authorization: localStorage.getItem("token"),
       },
-      method: "DELETE"
+      method: "DELETE",
     })
-      .then(payload => {
+      .then((payload) => {
         localStorage.removeItem("token");
         setCurrentUser(null);
       })
-      .catch(error => console.log("log out errors: ", error));
+      .catch((error) => console.log("log out errors: ", error));
   };
 
   return (
@@ -142,23 +140,23 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login login={login} />} />
         <Route path="/signup" element={<Signup signup={signup} />} />
-       
-          <Route path="/BeerIndex" element={<BeerIndex beers={beers} />} />
-        
+
+        <Route path="/BeerIndex" element={<BeerIndex beers={beers} />} />
+
         {currentUser && (
           <Route
-            path="/BeerShow/:id"
-            element={<BeerShow beers={beers} destroyBeer={destroyBeer} />}
+          path="/BeerShow/:id"
+          element={<BeerShow beers={beers} destroyBeer={destroyBeer} />}
           />
-        )}
+          )}
         {currentUser && (
           <Route
-            path="/BeerNew"
-            element={
-              <BeerNew createBeer={createBeer} currentUser={currentUser} />
+          path="/BeerNew"
+          element={
+            <BeerNew createBeer={createBeer} currentUser={currentUser} />
             }
           />
-        )}
+          )}
         {currentUser && (
           <Route
             path="/BeerEdit/:id"
@@ -172,7 +170,19 @@ const App = () => {
           />
         )}
         <Route path="/AboutUs" element={<AboutUs />} />
-        <Route path="*" element={<NotFound />} />
+        <Route
+          path="*"
+          element={
+            <NotFound
+            // input={input}
+            // output={output}
+            // inputRef={inputRef}
+            // handleNotFoundChange={handleNotFoundChange}
+            // handleNotFoundKey={handleNotFoundKey}
+            // handleNotFoundClick={handleNotFoundClick}
+            />
+          }
+        />
       </Routes>
       <Footer />
     </>
