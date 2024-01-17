@@ -8,7 +8,7 @@
     display: flex;
     justify-content: space-around;
     margin-top: 70px;
-    position:static; 
+    position:static;
 }
 
 .beer-container img {
@@ -23,7 +23,17 @@
     justify-content: space-between;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
     overflow: hidden;
-    height: 400px;
+}
+
+.beer-card a {
+    text-align: center;
+}
+
+.beer-card-NavLink {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 20px;
 }
 
 /* Styling of the Cards is in Aboutus.CSS */

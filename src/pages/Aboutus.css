@@ -9,13 +9,13 @@
     margin-top: 20px;
     position:static;
     border-radius: 8px;
-   
+    height: 600px;
 }
 /* adjust card text */
 
 /* Customize the Card Directly  */
 .card-title {
-    font-size: 20px;
+    font-size: 18px;
 }
 .card-subtitle {
     font-size: 20px;
@@ -24,15 +24,14 @@
 .card-text {
     margin: auto;
     font-size: 15px;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 .card {
     display: flex;
     justify-content: space-between;
     height: 750px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
-    overflow: hidden;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 .card img {
    display: flex;
@@ -40,6 +39,7 @@
    justify-content: center;
    width: 18rem;
    border-radius: 5px 5px 0px 0px;
+   
 }
 
 .card-body {

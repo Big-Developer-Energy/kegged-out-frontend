@@ -1,6 +1,12 @@
 import React from "react";
 import { Card, CardBody, CardText, CardTitle, CardSubtitle } from "reactstrap";
 import "../pages/Aboutus.css";
+import Dalton from "../assets/Dalton-M.png"
+import Danny from "../assets/danny.png"
+import Chandler from "../assets/chandler.png"
+import Alex from "../assets/alex.png"
+
+
 const AboutUs = () => {
   return (
     <>
@@ -10,10 +16,11 @@ const AboutUs = () => {
       <div className="card-container">
         <Card
           style={{
+            height: "100%",
             width: "18rem",
           }}
         >
-          <img alt="Sample" src="https://picsum.photos/300/200" />
+          <img alt="Sample" src={Alex} />
           <CardBody className="card-body">
             <CardTitle tag="h5">Alex Nguyen</CardTitle>
             <CardSubtitle className="mb-2 text-muted" tag="h6">
@@ -29,7 +36,7 @@ const AboutUs = () => {
               Red Trolley being a good one. It reminds me of Rome, the way the
               sunlight hits the buildings in the afternoon.
             </CardText>
-            <br/>
+            <br />
             <CardText>
               Skills: HTML, React, Ruby, Ruby on Rails, PostgreSQL
             </CardText>
@@ -51,10 +58,11 @@ const AboutUs = () => {
         </Card>
         <Card
           style={{
+            height: "100%",
             width: "18rem",
           }}
         >
-          <img alt="Sample" src="https://picsum.photos/300/200" />
+          <img alt="Sample" src={Chandler} />
           <CardBody>
             <CardTitle tag="h5">Chandler Gipson</CardTitle>
             <CardSubtitle className="mb-2 text-muted" tag="h6">
@@ -68,7 +76,7 @@ const AboutUs = () => {
               the tech world. I thrive in collaborative coding sessions and
               enjoy bringing projects to life.
             </CardText>
-            <br/>
+            <br />
             <CardText>
               Skills: HTML, React, Ruby, Ruby on Rails, PostgreSQL
             </CardText>
@@ -91,10 +99,11 @@ const AboutUs = () => {
         </Card>
         <Card
           style={{
+            height: "100%",
             width: "18rem",
           }}
         >
-          <img alt="Sample" src="https://picsum.photos/300/200" />
+          <img alt="Sample" src={Danny} />
           <CardBody>
             <CardTitle tag="h5">Danny De La Rosa</CardTitle>
             <CardSubtitle className="mb-2 text-muted" tag="h6">
@@ -121,7 +130,7 @@ const AboutUs = () => {
               interactive digital environments, my goal is to blend technical
               experience with creative analyzing.
             </CardText>
-            <br/>
+            <br />
             <CardText>
               Skills: HTML, React, Ruby, Ruby on Rails, PostgreSQL
             </CardText>
@@ -140,21 +149,22 @@ const AboutUs = () => {
         </Card>
         <Card
           style={{
+            height: "100%",
             width: "18rem",
           }}
         >
-          <img alt="Sample" src="https://picsum.photos/300/200" />
+          <img alt="Sample" src={Dalton} />
           <CardBody>
             <CardTitle tag="h5">Dalton McAuliffe</CardTitle>
             <CardSubtitle className="mb-2 text-muted" tag="h6">
-              Project Manajor
+              Project Manager
             </CardSubtitle>
             <CardText className="about-me-text">
               About Me: I'm an Army veteran from San Diego CA. I pursued
               Full-Stack web Developer, where my journey intertwines in the
               world of coding.
             </CardText>
-            <br/>
+            <br />
             <CardText>
               Skills: HTML, React, Ruby, Ruby on Rails, PostgreSQL
             </CardText>

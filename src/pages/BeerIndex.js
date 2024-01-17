@@ -13,15 +13,17 @@ const BeerIndex = ({ beers }) => {
           return (
             <>
               <div>
-                <Card className="beer-card" key={index} style={{width:"16rem"}} >
+                <Card className="beer-card" key={index} style={{ height:"100%",width:"16rem"}} >
                   <img alt={`beer review ${beer.name}`} src={beer.image} />
                   <CardBody>
                     <CardTitle>{beer.name}</CardTitle>
                     <CardSubtitle>{beer.rating}</CardSubtitle>
                     <CardText>{beer.description}</CardText>
+                  <div className="beer-card-NavLink">
                     <NavLink to={`/BeerShow/${beer.id}`}>
                       See more details
                     </NavLink>
+                    </div>
                   </CardBody>
                 </Card>
               </div>
