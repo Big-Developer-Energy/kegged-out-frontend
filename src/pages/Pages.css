@@ -1,3 +1,5 @@
+/* Home  */
+
 .home-link {
   display: flex;
   padding: 10px;
@@ -51,6 +53,54 @@
   margin-left: 15px;
 }
 
+
+
+/* Not Found  */
+.terminal-container {
+  background-color: black;
+  color: white;
+  border: bold white;
+  height: 40rem;
+  width: 60%;
+  margin: auto;
+  margin-top: 50px;
+  padding: 10px;
+  overflow: scroll;
+  font-family: monospace;
+}
+
+.terminal-container input {
+  height: 28px;
+  width: 100%;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  color: white;
+  caret-color: transparent;
+  font-family: monospace;
+  padding: 0;
+  text-align: left;
+}
+
+.terminal {
+  white-space: pre-line;
+  word-wrap: break-word;
+}
+
+.input {
+  display: flex;
+  justify-content: safe;
+}
+
+.error-message{
+  font-family: monospace;
+}
+.command-message{
+  font-family: monospace;
+
+
 .login-info {
   background-image: url("/src/assets/flight.jpg");
   background-size: cover;
@@ -98,10 +148,6 @@
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-.input-container {
-  text-shadow: 2px 2px 2px white (0, 0, 0, 0.9);
-}
-
 /* this is the submit button */
 .login-info input[type="submit"] {
   margin-bottom: 20px;
@@ -109,12 +155,12 @@
   color: #c96142;
   border-radius: 5px;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+
 }
 
 /* header with the word "login" */
 .login-header {
   text-align: center;
-  background-color: white;
   width: fit-content;
   margin: 0 auto;
   height: 80px;
@@ -124,12 +170,98 @@
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* registration info at the buttom of the page */
+
+
+
+/* this is the start of all the css for signup */
+
+
+
+
+.signup-info {
+  background-image: url("/src/assets/beercheer.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.signup-info a {
+  font-family: "Newsreader", serif;
+}
+
+.signup-info a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+/* this is for the handlesubmit */
+.signup-info form {
+  text-align: center;
+  color: #c96142;
+  max-width: 300px;
+  font-size: 20px;
+}
+
+.signup-info input[type="email"] {
+  margin-bottom: 20px;
+  border-radius: 8px;
+  width: 100%;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.signup-info input[type="password"] {
+  margin-bottom: 20px;
+  border-radius: 8px;
+  width: 100%;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.signup-info label[for="password"] {
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* this is the submit button */
+.signup-info input[type="submit"] {
+  margin-bottom: 20px;
+  background-color: white;
+  color: #c96142;
+  border-radius: 5px;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+
+.signup-header {
+  text-align: center;
+  width: fit-content;
+  margin: 0 auto;
+  height: 80px;
+  font-weight: bold;
+  font-family: ˝ "Newsreader", serif;
+  color: black;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+
+
+/* registration info at the buttom of the login and sign up page */
+
+.registration-sentence {
+    color: white;
+}
+
 .registration-login {
   color: black;
   text-align: center;
+font-weight: bold;
   /* text-decoration: none; */
 }
+
 
 .registration-login a:hover {
   color: white;
