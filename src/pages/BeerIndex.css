@@ -1,0 +1,31 @@
+.beers-title {
+    font-size: 64px;
+    font-family: Newsreader-Regular;
+}
+.beer-container {
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+  display: flex;
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 20px;  
+}
+.card img {
+    display: flex;
+   border-radius: 5px;
+   justify-content: center;
+}
+
+.card a {
+    background-color: #c54620;
+    font-size: 20px;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+

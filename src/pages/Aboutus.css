@@ -1,0 +1,42 @@
+.about-title {
+    font-family: Newsreader-Regular;
+}
+
+.card {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin:0, auto;
+    padding: 10px, 10px;
+    position: static;
+    margin-bottom: 50px;
+    align-content: center;
+}
+
+.card img {
+    display: flex;
+   border-radius: 5px;
+   justify-content: center;
+}
+
+.card-body {
+    text-align: center;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    justify-content: space-around;
+}
+
+.card-body h6{
+    font-size: 20px;
+    color: #c54620 !important;
+}
+
+.card a {
+    background-color: #c54620;
+    font-size: 20px;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
