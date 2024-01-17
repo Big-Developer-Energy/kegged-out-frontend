@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <>
       <div className="Home-page">
-        <h1>Kegged out, where finding Breweries is our tap stoutsation</h1>
+        <h1>Kegged Out, Where Discovering Brews & Breweries is Our Sudsation</h1>
       </div>
       <Nav className="home-link">
         <NavItem>
@@ -37,12 +37,12 @@ const Home = () => {
           style={{ height: "200px", width: "200px" }}
         />
       <p>
-        We believe in quality products. Good quality atmosphere. Hey there,
-        fellow beer enthusiasts! We're the Kegged Out, a dynamic quartet on a
+        Hey there, fellow beer enthusiasts! Here at Kegged Out, we are on a
         mission to explore the vast and tantalizing world of breweries and craft
-        beer. United by our unwavering passion for the art of brewing, we've
+        beer. We believe in enjoying quality products in inviting atmospheres.
+        United by our unwavering passion for the art of brewing, we've
         come together to share our experiences, insights, and the sheer joy of
-        sipping on some exceptional brews.
+        sipping on some exceptional brews. Cheers!
       </p>
       </div>
     </>

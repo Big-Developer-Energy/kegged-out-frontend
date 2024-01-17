@@ -60,6 +60,15 @@
   padding: 30px;
 }
 
+.login-container Input {
+  background-color: #c96142;
+  color: white;
+}
+
+.login-container Input:hover {
+  color: black;
+}
+
 /* footer */
 .footer {
 text-align: center;
