@@ -307,3 +307,44 @@ font-weight: bold;
 .beer-new-form button:hover {
   color: black;
 }
+
+/* Beer Edit */
+.beer-edit-title {
+  text-align: center;
+}
+
+.beer-edit-form {
+  background-image: url("/src/assets/cheers.jpg");
+  background-color: black;
+  height: 500px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  justify-content: center;
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 40px;
+}
+
+.beer-edit-form-group Label {
+  color: #c96142;
+  font-size: 22px;
+}
+
+.beer-edit-form-group Input {
+  margin: auto;
+  text-align: center;
+  width: 300px;
+}
+
+.beer-edit-form button {
+  background-color: #c96142;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.beer-edit-form button:hover {
+  color: black;
+}

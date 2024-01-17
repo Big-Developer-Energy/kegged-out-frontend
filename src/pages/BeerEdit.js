@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Form, FormGroup, Input, Label, Button } from "reactstrap";
+import { Form, FormGroup, Input, Label } from "reactstrap";
 import { useNavigate, useParams } from "react-router-dom";
 
 
@@ -31,29 +31,32 @@ const BeerEdit = ({ beers, updateBeer }) => {
     <>
       {currentBeer && (
         <>
+        <h1 className='beer-edit-title'>Edit a Brewview</h1>
+        <div className='beer-edit-form'>
           <Form>
-            <FormGroup>
-              <Label for="name">Name</Label>
+            <FormGroup className='beer-edit-form-group'>
+              <Label for="name">Beer Name</Label>
               <Input type="text" name="name" onChange={handleChange} value={editBeer.name} />
             </FormGroup>
-            <FormGroup>
+            <FormGroup className='beer-edit-form-group'>
               <Label for="rating">Rating</Label>
               <Input type="text" name="rating" onChange={handleChange} value={editBeer.rating} />
             </FormGroup>
-            <FormGroup>
-              <Label for="description">Description</Label>
+            <FormGroup className='beer-edit-form-group'>
+              <Label for="description">Description of Beer</Label>
               <Input type="text" name="description" onChange={handleChange} value={editBeer.description} />
             </FormGroup>
-            <FormGroup>
-              <Label for="location">Location</Label>
+            <FormGroup className='beer-edit-form-group'>
+              <Label for="location">Brewery Name/Location</Label>
               <Input type="text" name="location" onChange={handleChange} value={editBeer.location} />
             </FormGroup>
-            <FormGroup>
-              <Label for="image">Image</Label>
+            <FormGroup className='beer-edit-form-group'>
+              <Label for="image">Upload Image</Label>
               <Input type="text" name="image" onChange={handleChange} value={editBeer.image} />
             </FormGroup>
+          <button onClick={handleSubmit} name="submit">Submit Update</button>
           </Form>
-          <Button onClick={handleSubmit} name="submit">Submit Update</Button>
+          </div>
         </>
       )
       }
