@@ -16,7 +16,7 @@ const NotFound = ({
         <div className="terminal">
           {output.map((item, index) => (
             <div key={index}>
-              <span className="command">USER~~~{item.command}</span>
+              <span className="command">visitor@keggedout.com~~{item.command}</span>
               <br />
               <span className="response">{item.response}</span>
               <br />
@@ -25,7 +25,7 @@ const NotFound = ({
           ))}
         </div>
         <div className="input">
-          USER~~~
+        visitor@keggedout.com~~
           <input
             ref={inputRef}
             type="text"
