@@ -56,11 +56,14 @@
 .terminal-container {
   background-color: black;
   color: white;
-  height: 35rem;
-  margin: auto;
-  margin-top: 100px;
+  border: bold white;
+  height: 40rem;
   width: 60%;
+  margin: auto;
+  margin-top: 50px;
   padding: 10px;
+  overflow: scroll;
+  font-family: monospace;
 }
 
 .terminal-container input {
@@ -72,13 +75,25 @@
   padding: 0;
   background-color: transparent;
   color: white;
+  caret-color: transparent;
+  font-family: monospace;
+  padding: 0;
+  text-align: left;
 }
 
 .terminal {
   white-space: pre-line;
+  word-wrap: break-word;
 }
 
 .input {
   display: flex;
-  justify-content:safe;
+  justify-content: safe;
+}
+
+.error-message{
+  font-family: monospace;
+}
+.command-message{
+  font-family: monospace;
 }

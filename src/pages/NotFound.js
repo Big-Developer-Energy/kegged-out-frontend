@@ -4,32 +4,50 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 const NotFound = () => {
+  const congrats =
+    "congratulations you found the password!!!\n password: $IPA$";
+  console.log(congrats);
   const [input, setInput] = useState("");
   const [output, setOutput] = useState([]);
+  const [message, setMessage] = useState("welcome to Kegged ou.......");
+  const [instruction, setInstruction] = useState("");
+  const [line, setLine] = useState("visitor@keggedout.com~~");
   const inputRef = useRef();
+  const terminalRef = useRef(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     inputRef.current.focus();
   }, []);
 
-  const handleNotFoundChange = (e) => {
+  useEffect(() => {
+    if (terminalRef.current) {
+      terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
+    }
+  }, [output]); // Dependency array with your state variable that triggers the scroll
+
+  const handleChange = (e) => {
     setInput(e.target.value);
   };
 
-  const handleNotFoundClick = (e) => {
+  const handleClick = (e) => {
     inputRef.current.focus();
   };
 
-  const handleNotFoundKey = (e) => {
+  const handleKey = (e) => {
     let key = e.key;
     if (key === "Enter") {
-      const newOutput = [
-        ...output,
-        { command: input, response: commandResponse(input) },
-      ];
-      setOutput(newOutput);
-      setInput(""); // Clear the input field
+      if (input === "clear") {
+        setOutput([]);
+        setInput("");
+      } else {
+        let newOutput = [
+          ...output,
+          { command: input, response: commandResponse(input) },
+        ];
+        setOutput(newOutput);
+        setInput(""); // Clear the input field
+      }
     }
   };
 
@@ -44,39 +62,58 @@ const NotFound = () => {
     ];
 
     if (command === "secret") {
+      setLine("admin@keggedout.com~~");
       return "Please enter password";
     } else if (command === "pwd") {
+      setLine("visitor@keggedout.com~~");
       return "Welcome to our Brewery, here you can learn more about the creators of this website";
     } else if (command === "about") {
+      setLine("visitor@keggedout.com~~");
       return "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Porttitor massa id neque aliquam vestibulum morbi blandit cursus risus. Diam in arcu cursus euismod quis viverra nibh. Quam pellentesque nec nam aliquam sem. Rhoncus dolor purus non enim praesent elementum facilisis leo.";
     } else if (command === "help") {
+      setLine("visitor@keggedout.com~~");
       return listOfCommands;
-    } else if (command === "clear") {
-      return "clearFunction";
-    } else if (command === "$BDE$") {
+    } else if (command === "$IPA$") {
+      setLine("admin@keggedout.com~~");
       window.open(
         "https://youtu.be/dQw4w9WgXcQ?si=fBDDtHiTRFIwu6L2&t=43",
         "_blank"
       );
     } else if (command === "home") {
+      setLine("visitor@keggedout.com~~");
       setTimeout(() => {
         navigate("/");
       }, 2000);
-      // clearFunction
+
       return "Opening Kegged Out...";
     } else {
+      setLine("visitor@keggedout.com~~");
       return `'${command}' was not recognized, type 'help' for a list of available commands`;
     }
   };
+  setTimeout(() => {
+    setMessage("🍺🍺🍺 Brewing Error: Keg Not Found! 🍺🍺🍺\n");
+  }, 1500);
+  setTimeout(() => {
+    setInstruction("For a list of available commands, type 'help'");
+  }, 2200);
+ 
 
   return (
     <>
-      <div className="terminal-container" onClick={handleNotFoundClick}>
+      <main
+        ref={terminalRef}
+        className="terminal-container"
+        onClick={handleClick}
+      >
+        <p className="error-message">{message}</p>
+        <p className="error-message">{instruction}</p>
         <div className="terminal">
           {output.map((item, index) => (
             <div key={index}>
               <span className="command">
-                visitor@keggedout.com~~{item.command}
+                {line}
+                {item.command}
               </span>
               <br />
               <span className="response">{item.response}</span>
@@ -86,16 +123,16 @@ const NotFound = () => {
           ))}
         </div>
         <div className="input">
-          visitor@keggedout.com~~
+          {line}
           <input
             ref={inputRef}
             type="text"
             value={input}
-            onChange={handleNotFoundChange}
-            onKeyDown={handleNotFoundKey}
+            onChange={handleChange}
+            onKeyDown={handleKey}
           />
         </div>
-      </div>
+      </main>
     </>
   );
 };
