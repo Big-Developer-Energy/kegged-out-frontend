@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
 import Header from "./components/Header";
@@ -18,10 +17,6 @@ import "./App.css";
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const [beers, setBeers] = useState([]);
-  const [input, setInput] = useState("");
-  const [output, setOutput] = useState([]);
-
-  const inputRef = useRef();
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("token");
@@ -30,12 +25,6 @@ const App = () => {
     }
     readBeer();
   }, []);
-
-  useEffect(() => {
-    inputRef.current.focus();
-  }, []);
-
-  const navigate = useNavigate();
 
   const createBeer = (beer) => {
     console.log(beer);
@@ -144,61 +133,6 @@ const App = () => {
       .catch((error) => console.log("log out errors: ", error));
   };
 
-  // Not Found Page
-
-  const handleNotFoundChange = (e) => {
-    setInput(e.target.value);
-  };
-
-  const handleNotFoundClick = (e) => {
-    inputRef.current.focus();
-  };
-
-  const handleNotFoundKey = (e) => {
-    let key = e.key;
-    if (key === "Enter") {
-      const newOutput = [
-        ...output,
-        { command: input, response: commandResponse(input) },
-      ];
-      setOutput(newOutput);
-      setInput(""); // Clear the input field
-    }
-  };
-
-  const commandResponse = (command) => {
-    let listOfCommands = [
-      "pwd\n",
-      "about\n",
-      "secret\n",
-      "help\n",
-      "clear\n",
-      "home",
-    ];
-
-    if (command === "secret") {
-      return "Please enter password"
-    } else if (command === "pwd") {
-      return "Welcome to our Brewery, here you can learn more about the creators of this website";
-    } else if (command === "about") {
-      return "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Porttitor massa id neque aliquam vestibulum morbi blandit cursus risus. Diam in arcu cursus euismod quis viverra nibh. Quam pellentesque nec nam aliquam sem. Rhoncus dolor purus non enim praesent elementum facilisis leo.";
-    } else if (command === "help") {
-      return listOfCommands;
-    } else if (command === "clear") {
-      return "clearFunction";
-    } else if (command === "$BDE$") {
-      window.open('https://youtu.be/dQw4w9WgXcQ?si=fBDDtHiTRFIwu6L2&t=43', '_blank')
-    } else if (command === "home") {
-      setTimeout(() => {
-        navigate("/");
-      }, 2000);
-      // clearFunction
-      return "Opening Kegged Out...";
-    } else {
-      return `'${command}' was not recognized, type 'help' for a list of available commands`;
-    }
-  };
-
   return (
     <>
       <Header currentUser={currentUser} logout={logout} />
@@ -240,12 +174,12 @@ const App = () => {
           path="*"
           element={
             <NotFound
-              input={input}
-              output={output}
-              inputRef={inputRef}
-              handleNotFoundChange={handleNotFoundChange}
-              handleNotFoundKey={handleNotFoundKey}
-              handleNotFoundClick={handleNotFoundClick}
+            // input={input}
+            // output={output}
+            // inputRef={inputRef}
+            // handleNotFoundChange={handleNotFoundChange}
+            // handleNotFoundKey={handleNotFoundKey}
+            // handleNotFoundClick={handleNotFoundClick}
             />
           }
         />
