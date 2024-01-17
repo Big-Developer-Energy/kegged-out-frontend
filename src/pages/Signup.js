@@ -1,5 +1,6 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Modal } from "reactstrap";
 import beercheer from "../assets/beercheer.jpg";
 
 const Signup = ({ signup }) => {
@@ -7,11 +8,14 @@ const Signup = ({ signup }) => {
 
   const formRef = useRef();
 
+    // function for updating useState for modal
+  const [isModalOpen, setIsModalOpen] = useState(false); 
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const formData = new FormData(formRef.current);
-
     const data = Object.fromEntries(formData);
 
     const userInfo = {
@@ -19,8 +23,20 @@ const Signup = ({ signup }) => {
     };
     signup(userInfo);
     navigate("/");
-    e.target.reset();
+
+    // modal value
+    setIsModalOpen(true);
+   
+    // original syntax below
+    // e.target.reset();
   };
+
+  // the const made for the modal
+  const closeModal = () => {
+    setIsModalOpen(false);
+    navigate("/");
+  };
+
 
   return (
     <div className="signup-info">
@@ -45,12 +61,26 @@ const Signup = ({ signup }) => {
       </form>
       <br />
       <div className="registration-sentence">
-        Already Registered, {" "} 
+        Already Registered,{" "}
         <a href="/login" className="registration-login">
           LOGIN
-          </a>{" "} 
-          here!{" "}
+        </a>{" "}
+        here!{" "}
       </div>
+
+
+{/* this is the modal added for age verification */}
+      <Modal
+        isOpen={isModalOpen}
+        onREquestClose={closeModal}
+        contentLabel="Age Verification"
+      >
+        <h2>Are you over 21?</h2>
+        <button onClick={closeModal}>Yes</button>
+        <button onClick={closeModal}>No</button>
+      </Modal>
+
+
     </div>
   );
 };
