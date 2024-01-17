@@ -24,8 +24,8 @@ const Login = ({ login }) => {
 
   return (
     <div>
-      <h1 className="login-header">Login</h1>
       <div className="login-info">
+      <h1 className="login-header">Login</h1>
         <form ref={formRef} onSubmit={handleSubmit}>
           <div className="input-container"> Email: <input type="email" name="email" placeholder="email" />
           </div>
@@ -36,9 +36,10 @@ const Login = ({ login }) => {
           <input type="submit" value={"Submit"} />
         </form>
         <br />
-        <div>
+        <div className="registration-sentence" >
           Already registered,{" "}
-          <a href="/login" className="registration-login">
+          <a href="/login" 
+          className="registration-login">
             LOGIN
           </a>{" "}
           here!{" "}
