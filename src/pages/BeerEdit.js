@@ -13,8 +13,7 @@ const BeerEdit = ({ beers, updateBeer, currentUser }) => {
     rating: currentBeer?.rating,
     description: currentBeer?.description,
     location: currentBeer?.location,
-    image: currentBeer?.image,
-    user_id: currentUser.id
+    image: currentBeer?.image
   });
 
   const handleChange = (e) => {
