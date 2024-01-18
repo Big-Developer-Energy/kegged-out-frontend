@@ -34,6 +34,7 @@ const BeerEdit = ({ beers, updateBeer, currentUser }) => {
             <FormGroup className="beer-edit-form-group">
               <Label for="name">Beer Name</Label>
               <Input
+                id="name"
                 type="text"
                 name="name"
                 onChange={handleChange}
@@ -42,7 +43,7 @@ const BeerEdit = ({ beers, updateBeer, currentUser }) => {
             </FormGroup>
             <FormGroup className="beer-edit-form-group">
               <Label for="rating">Rating</Label>
-              <Input 
+              <Input
                 id="rating"
                 type="text"
                 name="rating"
@@ -53,6 +54,7 @@ const BeerEdit = ({ beers, updateBeer, currentUser }) => {
             <FormGroup className="beer-edit-form-group">
               <Label for="description">Description of Beer</Label>
               <Input
+                id="description"
                 type="text"
                 name="description"
                 onChange={handleChange}
@@ -62,6 +64,7 @@ const BeerEdit = ({ beers, updateBeer, currentUser }) => {
             <FormGroup className="beer-edit-form-group">
               <Label for="location">Brewery Name/Location</Label>
               <Input
+                id="location"
                 type="text"
                 name="location"
                 onChange={handleChange}
@@ -71,6 +74,7 @@ const BeerEdit = ({ beers, updateBeer, currentUser }) => {
             <FormGroup className="beer-edit-form-group">
               <Label for="image">Upload Image</Label>
               <Input
+                id="image"
                 type="text"
                 name="image"
                 onChange={handleChange}

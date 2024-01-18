@@ -53,7 +53,7 @@ const App = () => {
     console.log(beer);
     fetch(`https://kegged-out-be.onrender.com/reviews/${beer.id}`, {
       body: JSON.stringify(beer),
-      header: {
+      headers: {
         "Content-Type": "application/json",
       },
       method: "PATCH",
