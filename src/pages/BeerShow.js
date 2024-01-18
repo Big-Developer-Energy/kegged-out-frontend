@@ -36,7 +36,6 @@ const BeerShow = ({ beers, destroyBeer }) => {
     <>
       <div>BeerShow</div>
       <main>
-        {currentBeer && (
           <>
             <Card
               style={{
@@ -74,7 +73,6 @@ const BeerShow = ({ beers, destroyBeer }) => {
               </CardBody>
             </Card>
           </>
-        )}
       </main>
     </>
   );

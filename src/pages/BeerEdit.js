@@ -14,7 +14,7 @@ const BeerEdit = ({ beers, updateBeer, currentUser }) => {
     description: currentBeer?.description,
     location: currentBeer?.location,
     image: currentBeer?.image,
-    // user_id: currentUser?.id
+    user_id: currentUser.id
   });
 
   const handleChange = (e) => {
