@@ -50,6 +50,7 @@ const App = () => {
   };
 
   const updateBeer = (beer, id) => {
+    console.log(beer);
     fetch(`https://kegged-out-be.onrender.com/reviews/${id}`, {
       body: JSON.stringify(beer),
       header: {
@@ -160,7 +161,13 @@ const App = () => {
         {currentUser && (
           <Route
             path="/BeerEdit/:id"
-            element={<BeerEdit beers={beers} updateBeer={updateBeer} />}
+            element={
+              <BeerEdit
+                beers={beers}
+                updateBeer={updateBeer}
+                currentUser={currentUser}
+              />
+            }
           />
         )}
         {currentUser && (

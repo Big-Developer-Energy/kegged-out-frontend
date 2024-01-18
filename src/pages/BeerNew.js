@@ -10,7 +10,7 @@ const BeerNew = ({ createBeer, currentUser }) => {
     description: "",
     location: "",
     image: "",
-    // user_id: currentUser.id
+    user_id: currentUser.id
   });
 
   const handleChange = (e) => {

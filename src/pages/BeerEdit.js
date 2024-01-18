@@ -4,18 +4,20 @@ import { useNavigate, useParams } from "react-router-dom";
 
 
 
-const BeerEdit = ({ beers, updateBeer }) => {
+const BeerEdit = ({ beers, updateBeer, currentUser }) => {
 
   const { id } = useParams()
   
   let currentBeer = beers?.find((beer) => beer.id === +id)
 
   const [editBeer, setEditBeer] = useState({
+    id: currentBeer?.id,
     name: currentBeer?.name,
     rating: currentBeer?.rating,
     description: currentBeer?.description,
     location: currentBeer?.location,
-    image: currentBeer?.image
+    image: currentBeer?.image,
+    user_id: currentUser?.id
   })
 
   const handleChange = (e) => {
