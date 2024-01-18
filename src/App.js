@@ -28,7 +28,7 @@ const App = () => {
 
   const createBeer = (beer) => {
     console.log(beer);
-    fetch("http://kegged-out-be.onrender.com/reviews", {
+    fetch("https://kegged-out-be.onrender.com/reviews", {
       body: JSON.stringify(beer),
       headers: {
         "Content-Type": "application/json",
@@ -41,7 +41,7 @@ const App = () => {
   };
 
   const readBeer = () => {
-    fetch("http://kegged-out-be.onrender.com/reviews")
+    fetch("https://kegged-out-be.onrender.com/reviews")
       .then((response) => response.json())
       .then((payload) => {
         setBeers(payload);
@@ -50,7 +50,7 @@ const App = () => {
   };
 
   const updateBeer = (beer, id) => {
-    fetch(`http://kegged-out-be.onrender.com/reviews/${id}`, {
+    fetch(`https://kegged-out-be.onrender.com/reviews/${id}`, {
       body: JSON.stringify(beer),
       header: {
         "Content-Type": "application/json",
@@ -63,7 +63,7 @@ const App = () => {
   };
 
   const destroyBeer = (id) => {
-    fetch(`http://kegged-out-be.onrender.com/reviews/${id}`, {
+    fetch(`https://kegged-out-be.onrender.com/reviews/${id}`, {
       headers: {
         "Content-Type": "application/json",
       },
@@ -75,7 +75,7 @@ const App = () => {
   };
 
   const login = (userInfo) => {
-    fetch("http://kegged-out-be.onrender.com/login", {
+    fetch("https://kegged-out-be.onrender.com/login", {
       body: JSON.stringify(userInfo),
       headers: {
         "Content-Type": "application/json",
@@ -97,7 +97,7 @@ const App = () => {
   };
 
   const signup = (userInfo) => {
-    fetch("http://kegged-out-be.onrender.com/signup", {
+    fetch("https://kegged-out-be.onrender.com/signup", {
       body: JSON.stringify(userInfo),
       headers: {
         "Content-Type": "application/json",
@@ -119,7 +119,7 @@ const App = () => {
   };
 
   const logout = () => {
-    fetch("http://kegged-out-be.onrender.com/logout", {
+    fetch("https://kegged-out-be.onrender.com/logout", {
       headers: {
         "Content-Type": "application/json",
         Authorization: localStorage.getItem("token"),
