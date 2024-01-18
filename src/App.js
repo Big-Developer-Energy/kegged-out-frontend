@@ -26,9 +26,10 @@ const App = () => {
     readBeer();
   }, []);
 
+  const url = "https://keggedout.onrender.com"
+
   const createBeer = (beer) => {
-    console.log(beer);
-    fetch("https://kegged-out-be.onrender.com/reviews", {
+    fetch(`${url}/reviews`, {
       body: JSON.stringify(beer),
       headers: {
         "Content-Type": "application/json",
@@ -41,7 +42,7 @@ const App = () => {
   };
 
   const readBeer = () => {
-    fetch("https://kegged-out-be.onrender.com/reviews")
+    fetch(`${url}/reviews`)
       .then((response) => response.json())
       .then((payload) => {
         setBeers(payload);
@@ -50,8 +51,7 @@ const App = () => {
   };
 
   const updateBeer = (beer) => {
-    console.log(beer);
-    fetch(`https://kegged-out-be.onrender.com/reviews/${beer.id}`, {
+    fetch(`${url}/reviews/${beer.id}`, {
       body: JSON.stringify(beer),
       headers: {
         "Content-Type": "application/json",
@@ -64,7 +64,7 @@ const App = () => {
   };
 
   const destroyBeer = (id) => {
-    fetch(`https://kegged-out-be.onrender.com/reviews/${id}`, {
+    fetch(`${url}/reviews/${id}`, {
       headers: {
         "Content-Type": "application/json",
       },
@@ -76,7 +76,7 @@ const App = () => {
   };
 
   const login = (userInfo) => {
-    fetch("https://kegged-out-be.onrender.com/login", {
+    fetch(`${url}/login`, {
       body: JSON.stringify(userInfo),
       headers: {
         "Content-Type": "application/json",
@@ -98,7 +98,7 @@ const App = () => {
   };
 
   const signup = (userInfo) => {
-    fetch("https://kegged-out-be.onrender.com/signup", {
+    fetch(`${url}/signup`, {
       body: JSON.stringify(userInfo),
       headers: {
         "Content-Type": "application/json",
@@ -120,7 +120,7 @@ const App = () => {
   };
 
   const logout = () => {
-    fetch("https://kegged-out-be.onrender.com/logout", {
+    fetch(`${url}/logout`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: localStorage.getItem("token"),
@@ -136,6 +136,7 @@ const App = () => {
 
   return (
     <>
+      <div className="app">
       <Header currentUser={currentUser} logout={logout} />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -180,6 +181,7 @@ const App = () => {
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
+      </div>
     </>
   );
 };

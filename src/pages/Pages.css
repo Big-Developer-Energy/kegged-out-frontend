@@ -56,6 +56,9 @@
 
 
 /* Not Found  */
+
+
+
 .terminal-container {
   background-color: black;
   color: white;
@@ -257,20 +260,21 @@
 }
 
 .registration-login {
-  color: black;
+  color: white;
   text-align: center;
-font-weight: bold;
+  font-weight: bold;
   /* text-decoration: none; */
 }
 
 
 .registration-login a:hover {
-  color: white;
+  color: #c96142;
 }
 
-/* Beer New */
+/* BEER NEW */
 .beer-new-title {
   text-align: center;
+  font-family: Newsreader-Regular;
 }
 
 .beer-new-form {
@@ -287,8 +291,9 @@ font-weight: bold;
 }
 
 .beer-new-form-group Label {
-  color: #c96142;
+  color: rgb(255, 72, 0);
   font-size: 22px;
+  text-shadow: 2px 2px 2px black;
 }
 
 .beer-new-form-group Input {
@@ -309,7 +314,7 @@ font-weight: bold;
   color: black;
 }
 
-/* Beer Edit */
+/* BEER EDIT */
 .beer-edit-title {
   text-align: center;
 }
@@ -328,8 +333,9 @@ font-weight: bold;
 }
 
 .beer-edit-form-group Label {
-  color: #c96142;
+  color: rgb(255, 72, 0);
   font-size: 22px;
+  text-shadow: 2px 2px 2px black;
 }
 
 .beer-edit-form-group Input {
@@ -347,5 +353,27 @@ font-weight: bold;
 }
 
 .beer-edit-form button:hover {
+  color: black;
+}
+
+/* BEER SHOW */
+.beer-show-title {
+  text-align: center;
+  font-family: Newsreader-Regular;
+  font-size: 62px;
+}
+
+.beer-show-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.beer-show-container Button {
+  background-color: #c96142;
+}
+
+.beer-show-container Button:hover {
   color: black;
 }

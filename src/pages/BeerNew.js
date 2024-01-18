@@ -38,7 +38,7 @@ const BeerNew = ({ createBeer, currentUser }) => {
         />
       </FormGroup>
       <FormGroup className="beer-new-form-group">
-        <Label for="rating">Rating</Label>
+        <Label for="rating">Rating (1-5)</Label>
         <Input
           id="rating"
           type="text"

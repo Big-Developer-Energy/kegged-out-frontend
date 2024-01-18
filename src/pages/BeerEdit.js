@@ -42,7 +42,7 @@ const BeerEdit = ({ beers, updateBeer, currentUser }) => {
               />
             </FormGroup>
             <FormGroup className="beer-edit-form-group">
-              <Label for="rating">Rating</Label>
+              <Label for="rating">Rating (1-5)</Label>
               <Input
                 id="rating"
                 type="text"

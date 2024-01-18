@@ -1,13 +1,14 @@
 .beers-title {
     font-size: 64px;
     font-family: Newsreader-Regular;
-    border-bottom:1px solid black;
+    text-align: center;
 }
 /* wraps the cards */
 .beer-container {
     display: flex;
     justify-content: space-around;
     margin-top: 70px;
+    margin-bottom: 20px;
     position:static;
 }
 
@@ -34,6 +35,7 @@
     justify-content: center;
     position: relative;
     top: 20px;
+    padding: 10px;
 }
 
 /* Styling of the Cards is in Aboutus.CSS */
