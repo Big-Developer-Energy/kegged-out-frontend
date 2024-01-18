@@ -34,8 +34,8 @@ const BeerShow = ({ beers, destroyBeer }) => {
 
   return (
     <>
-      <div>BeerShow</div>
-      <main>
+      <div className="beer-show-title">How About This Beer?</div>
+      <main className="beer-show-container">
           <>
             <Card
               style={{
@@ -48,13 +48,13 @@ const BeerShow = ({ beers, destroyBeer }) => {
               />
               <CardBody>
                 <CardTitle tag="h5" CardTitle>
-                  Name: {currentBeer.name}
+                  {currentBeer.name}
                 </CardTitle>
                 <CardSubtitle className="mb-2 text-muted" tag="h6">
                   Rating: {currentBeer.rating}
                 </CardSubtitle>
-                <CardText>Description: {currentBeer.description}</CardText>
-                <CardText>Location: {currentBeer.location}</CardText>
+                <CardText>{currentBeer.description}</CardText>
+                <CardText>{currentBeer.location}</CardText>
                 <NavLink to={`/BeerEdit/${currentBeer.id}`}>
                  <div className="edit-button">
                  <Button>Edit Review</Button>
@@ -66,7 +66,7 @@ const BeerShow = ({ beers, destroyBeer }) => {
                     Are you sure you want to delete this review?
                   </ModalBody>
                   <ModalFooter>
-                    <Button onClick={handleDestroy}>yes</Button>
+                    <Button onClick={handleDestroy}>Yes</Button>
                     <Button onClick={handleSubmit}>No</Button>
                   </ModalFooter>
                 </Modal>

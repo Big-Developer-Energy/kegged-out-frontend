@@ -17,11 +17,10 @@ const BeerIndex = ({ beers }) => {
                   <img alt={`beer review ${beer.name}`} src={beer.image} />
                   <CardBody>
                     <CardTitle>{beer.name}</CardTitle>
-                    <CardSubtitle>{beer.rating}</CardSubtitle>
-                    <CardText>{beer.description}</CardText>
+                    <CardSubtitle>Rating: {beer.rating}</CardSubtitle>
                   <div className="beer-card-NavLink">
                     <NavLink to={`/BeerShow/${beer.id}`}>
-                      See more details
+                      See More Details
                     </NavLink>
                     </div>
                   </CardBody>

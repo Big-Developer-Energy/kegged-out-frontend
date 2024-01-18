@@ -61,7 +61,7 @@ const Signup = ({ signup }) => {
       </form>
       <br />
       <div className="registration-sentence">
-        Already Registered,{" "}
+        Already registered,{" "}
         <a href="/login" className="registration-login">
           LOGIN
         </a>{" "}
