@@ -49,9 +49,9 @@ const App = () => {
       .catch((errors) => console.log("Beers read errors: ", errors));
   };
 
-  const updateBeer = (beer, id) => {
+  const updateBeer = (beer) => {
     console.log(beer);
-    fetch(`https://kegged-out-be.onrender.com/reviews/${id}`, {
+    fetch(`https://kegged-out-be.onrender.com/reviews/${beer.id}`, {
       body: JSON.stringify(beer),
       header: {
         "Content-Type": "application/json",

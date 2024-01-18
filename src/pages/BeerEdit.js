@@ -7,7 +7,7 @@ import { useNavigate, useParams } from "react-router-dom";
 const BeerEdit = ({ beers, updateBeer, currentUser }) => {
 
   const { id } = useParams()
-  
+  console.log(currentUser)
   let currentBeer = beers?.find((beer) => beer.id === +id)
 
   const [editBeer, setEditBeer] = useState({
@@ -17,7 +17,7 @@ const BeerEdit = ({ beers, updateBeer, currentUser }) => {
     description: currentBeer?.description,
     location: currentBeer?.location,
     image: currentBeer?.image,
-    user_id: currentUser?.id
+    // user_id: currentUser?.id
   })
 
   const handleChange = (e) => {
@@ -25,7 +25,7 @@ const BeerEdit = ({ beers, updateBeer, currentUser }) => {
   }
   const navigate = useNavigate()
   const handleSubmit = () => {
-    updateBeer(editBeer, currentBeer.id)
+    updateBeer(editBeer)
     navigate("/BeerIndex")
   }
 
