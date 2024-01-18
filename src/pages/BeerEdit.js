@@ -43,7 +43,8 @@ const BeerEdit = ({ beers, updateBeer, currentUser }) => {
             </FormGroup>
             <FormGroup className="beer-edit-form-group">
               <Label for="rating">Rating</Label>
-              <Input
+              <Input 
+                id="rating"
                 type="text"
                 name="rating"
                 onChange={handleChange}
