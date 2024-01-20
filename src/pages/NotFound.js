@@ -24,7 +24,7 @@ const NotFound = () => {
     if (terminalRef.current) {
       terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
     }
-  }, [output]); // Dependency array with your state variable that triggers the scroll
+  }, [output]);
 
   const handleChange = (e) => {
     setInput(e.target.value);
@@ -46,7 +46,7 @@ const NotFound = () => {
           { command: input, response: commandResponse(input) },
         ];
         setOutput(newOutput);
-        setInput(""); // Clear the input field
+        setInput("");
       }
     }
   };
